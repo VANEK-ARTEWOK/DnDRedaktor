@@ -1,0 +1,71 @@
+
+
+#include "TXLib.h"
+
+
+
+
+
+
+
+
+
+
+
+struct Button
+{
+ int x ;
+ int y ;
+ int width ;
+ int height ;
+ 
+ void draw()
+ {
+    txSetColor (TX_RED,10);
+    txSetFillColor (TX_TRANSPARENT);
+    Win32::RoundRect (txDC(),x+3, e+, 235, 100,30,30);
+    txSelectFont("Time New Roman",15);
+    txDrawText(55,55,235,100,"Раса");
+ } 
+}
+
+
+
+void drawWorkspase(int x,int y ,int width,int height)
+{
+txSetColor (TX_RED,10);
+    txSetFillColor (TX_TRANSPARENT);
+    txRectangle (x, y, x+width, y+height);
+
+ }
+int main()
+    {
+    txCreateWindow (1540, 800);
+   txTextCursor (false);
+   while(!GetAsyncKeyState (VK_ESCAPE))
+   {
+    drawWorkspase(440,220 , 800, 500)
+
+    txSetColor (TX_RED,10);
+    txSetFillColor (TX_TRANSPARENT);
+    txRectangle (440, 220, 1355, 765);
+
+    txSetColor (TX_RED,10);
+    txSetFillColor (TX_TRANSPARENT);
+    Win32::RoundRect (txDC(),55, 55, 235, 100,30,30);
+    txSelectFont("Time New Roman",15);
+    txDrawText(55,55,235,100,"Раса");
+
+
+
+
+
+
+    txSleep(10);
+   }
+
+
+    txDisableAutoPause();
+    return 0;
+    }
+
