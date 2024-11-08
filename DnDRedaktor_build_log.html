@@ -4,22 +4,110 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 <body>
 <tt>
-Build started on: <u>13-09-2024 at 18:24.18</u><br />
-Build ended on: <u>13-09-2024 at 18:24.32</u><p />
+Build started on: <u>08-11-2024 at 18:19.36</u><br />
+Build ended on: <u>08-11-2024 at 18:19.45</u><p />
 <b>-------------- Build: Debug in DnDRedaktor (compiler: NOT FOR PROJECTS! = MinGW GCC + Strict + Fast + Save (Requires Git))---------------</b><br />
-g++git-auto.bat "C:\Users\user\Desktop\dnd\DnDRedaktor\main.cpp" -o bin\Debug\DnDRedaktor.exe -mwindows  -Wall -fexceptions  -g  -Wshadow -Winit-self -Wredundant-decls -Wcast-align -Wundef -Wfloat-equal -Winline -Wunreachable-code -Wmissing-declarations -Wmissing-include-dirs -Wswitch-enum -Wswitch-default -Weffc++ -Wmain -Wextra -Wall -g -pipe -fexceptions -Wcast-qual -Wconversion -Wctor-dtor-privacy -Wempty-body -Wformat-security -Wformat=2 -Wignored-qualifiers -Wlogical-op -Wmissing-field-initializers -Wnon-virtual-dtor -Woverloaded-virtual -Wpointer-arith -Wsign-promo -Wstack-usage=8192 -Wstrict-aliasing -Wstrict-null-sentinel -Wtype-limits -Wwrite-strings -D_DEBUG -D_EJUDGE_CLIENT_SIDE -D_EJC<br />
+g++git-auto.bat "D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp" -o bin\Debug\DnDRedaktor.exe -mwindows  -Wall -fexceptions  -g  -Wshadow -Winit-self -Wredundant-decls -Wcast-align -Wundef -Wfloat-equal -Winline -Wunreachable-code -Wmissing-declarations -Wmissing-include-dirs -Wswitch-enum -Wswitch-default -Weffc++ -Wmain -Wextra -Wall -g -pipe -fexceptions -Wcast-qual -Wconversion -Wctor-dtor-privacy -Wempty-body -Wformat-security -Wformat=2 -Wignored-qualifiers -Wlogical-op -Wmissing-field-initializers -Wnon-virtual-dtor -Woverloaded-virtual -Wpointer-arith -Wsign-promo -Wstack-usage=8192 -Wstrict-aliasing -Wstrict-null-sentinel -Wtype-limits -Wwrite-strings -D_DEBUG -D_EJUDGE_CLIENT_SIDE -D_EJC<br />
 ------------------------------------------------------------------------------------------------------<br />
 Compilation ERRORS:<br />
 <br />
-C:\Users\user\Desktop\dnd\DnDRedaktor\main.cpp: In function 'void drawWorkspase(int, int, int, int)':<br />
-<font color="#0000ff">C:\Users\user\Desktop\dnd\DnDRedaktor\main.cpp:34:6: warning: no previous declaration for 'void drawWorkspase(int, int, int, int)' [-Wmissing-declarations]</font><br />
- void drawWorkspase(int x,int y ,int width,int height)<br />
+D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp: In function 'void drawWorkspase(int, int, int, int)':<br />
+<font color="#0000ff">D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp:79:6: warning: no previous declaration for 'void drawWorkspase(int, int, int, int)' [-Wmissing-declarations]</font><br />
+ void drawWorkspase(int x,int y ,int w,int h)<br />
       ^<br />
+D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp: In function 'std::string DialogFile(bool)':<br />
+<font color="#0000ff">D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp:88:8: warning: no previous declaration for 'std::string DialogFile(bool)' [-Wmissing-declarations]</font><br />
+ string DialogFile(bool)<br />
+        ^<br />
+<font color="#ff0000">D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp:91:3: error: 'OPENFILE' was not declared in this scope</font><br />
+   OPENFILE ofn = {0};<br />
+   ^<br />
+<font color="#ff0000">D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp:91:12: error: expected ';' before 'ofn'</font><br />
+   OPENFILE ofn = {0};<br />
+            ^<br />
+In file included from c:\codeblocks\codeblocks\mingw\include\windows.h:50:0,<br />
+                 from c:\codeblocks\codeblocks\mingw\include\txlib.h:891,<br />
+                 from D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp:3:<br />
+<font color="#ff0000">D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp:93:3: error: expected primary-expression before ')' token</font><br />
+   ZeroMemory(&amp;,sizeof(ofn))<br />
+   ^<br />
+<font color="#ff0000">D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp:93:23: error: 'ofn' was not declared in this scope</font><br />
+   ZeroMemory(&amp;,sizeof(ofn))<br />
+                       ^<br />
+<font color="#ff0000">D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp:94:3: error: expected ';' before 'ofn'</font><br />
+   ofn.lStructSize = sizeof(ofn);<br />
+   ^<br />
+<font color="#ff0000">D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp:99:3: error: expected ';' before 'ofn'</font><br />
+   ofn.nFilterIndex<br />
+   ^<br />
+<font color="#0000ff">D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp:92:9: warning: unused variable 'szFile' [-Wunused-variable]</font><br />
+   TCHAR szFile[260]={0};<br />
+         ^<br />
+<font color="#0000ff">D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp:109:1: warning: no return statement in function returning non-void [-Wreturn-type]</font><br />
+ }<br />
+ ^<br />
+D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp: In constructor 'Button::Button()':<br />
+<font color="#0000ff">D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp:52:8: warning: 'Button::x' should be initialized in the member initialization list [-Weffc++]</font><br />
+ struct Button<br />
+        ^<br />
+<font color="#0000ff">D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp:52:8: warning: 'Button::y' should be initialized in the member initialization list [-Weffc++]</font><br />
+<font color="#0000ff">D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp:52:8: warning: 'Button::w' should be initialized in the member initialization list [-Weffc++]</font><br />
+<font color="#0000ff">D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp:52:8: warning: 'Button::h' should be initialized in the member initialization list [-Weffc++]</font><br />
+<font color="#0000ff">D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp:52:8: warning: 'Button::text' should be initialized in the member initialization list [-Weffc++]</font><br />
+<font color="#0000ff">D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp:52:8: warning: 'Button::contegor' should be initialized in the member initialization list [-Weffc++]</font><br />
+D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp: In function 'int main()':<br />
+D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp:121:28: note: synthesized method 'Button::Button()' first required here <br />
+      Button butn[count_butn];<br />
+                            ^<br />
+D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp: In constructor 'Pictures::Pictures()':<br />
+<font color="#0000ff">D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp:25:8: warning: 'Pictures::x' should be initialized in the member initialization list [-Weffc++]</font><br />
+ struct Pictures<br />
+        ^<br />
+<font color="#0000ff">D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp:25:8: warning: 'Pictures::y' should be initialized in the member initialization list [-Weffc++]</font><br />
+<font color="#0000ff">D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp:25:8: warning: 'Pictures::adress' should be initialized in the member initialization list [-Weffc++]</font><br />
+<font color="#0000ff">D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp:25:8: warning: 'Pictures::image' should be initialized in the member initialization list [-Weffc++]</font><br />
+<font color="#0000ff">D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp:25:8: warning: 'Pictures::w' should be initialized in the member initialization list [-Weffc++]</font><br />
+<font color="#0000ff">D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp:25:8: warning: 'Pictures::h' should be initialized in the member initialization list [-Weffc++]</font><br />
+<font color="#0000ff">D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp:25:8: warning: 'Pictures::w_shr' should be initialized in the member initialization list [-Weffc++]</font><br />
+<font color="#0000ff">D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp:25:8: warning: 'Pictures::h_shr' should be initialized in the member initialization list [-Weffc++]</font><br />
+<font color="#0000ff">D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp:25:8: warning: 'Pictures::vizible' should be initialized in the member initialization list [-Weffc++]</font><br />
+<font color="#0000ff">D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp:25:8: warning: 'Pictures::contegor' should be initialized in the member initialization list [-Weffc++]</font><br />
+D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp: In function 'int main()':<br />
+D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp:136:28: note: synthesized method 'Pictures::Pictures()' first required here <br />
+      Pictures pic[count_pic];<br />
+                            ^<br />
+<font color="#0000ff">D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp:258:48: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
+                  centr_pic[vybor].x=txMouseX() -centr_pic[vybor].w/2;<br />
+                                                ^<br />
+<font color="#0000ff">D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp:259:48: warning: conversion to 'int' from 'double' may alter its value [-Wconversion]</font><br />
+                  centr_pic[vybor].y=txMouseY() -centr_pic[vybor].h/2;<br />
+                                                ^<br />
+<font color="#0000ff">D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp:294:39: warning: statement has no effect [-Wunused-value]</font><br />
+                 centr_pic[vybor].w_shr*1.05;<br />
+                                       ^<br />
+<font color="#0000ff">D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp:295:39: warning: statement has no effect [-Wunused-value]</font><br />
+                 centr_pic[vybor].h_shr*1.05;<br />
+                                       ^<br />
+<font color="#0000ff">D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp:299:39: warning: statement has no effect [-Wunused-value]</font><br />
+                 centr_pic[vybor].w_shr*0.95;<br />
+                                       ^<br />
+<font color="#0000ff">D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp:300:39: warning: statement has no effect [-Wunused-value]</font><br />
+                 centr_pic[vybor].h_shr*0.95;<br />
+                                       ^<br />
+<font color="#ff0000">D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp:318:46: error: too few arguments to function 'std::string DialogFile(bool)'</font><br />
+                string filename =  DialogFile();<br />
+                                              ^<br />
+D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp:88:8: note: declared here<br />
+ string DialogFile(bool)<br />
+        ^<br />
+<font color="#ff0000">D:\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp:340:32: error: 'filename' was not declared in this scope</font><br />
+                ifstream filein(filename);<br />
+                                ^<br />
 ------------------------------------------------------------------------------------------------------<br />
-Autosaving to the Git repository in C:/Users/user/Desktop/dnd/DnDRedaktor/.git-auto/... <br />
-Output size is 2,24 MB<br />
-<font color="#0000ff">Process terminated with status 0 (0 minutes, 13 seconds)</font><br />
-<font color="#0000ff">0 errors, 1 warnings (0 minutes, 13 seconds)</font><br />
+Initialized empty Git repository in D:/Яковлев Иван/DnDRedaktor-main/DnDRedaktor-main/dnd/DnDRedaktor/.git-auto/<br />
+Autosaving to the Git repository in D:/ /DnDRedaktor-main/DnDRedaktor-main/dnd/DnDRedaktor/.git-auto/... <br />
+<font color="#a00000">Process terminated with status 1 (0 minutes, 8 seconds)</font><br />
+<font color="#a00000">8 errors, 26 warnings (0 minutes, 8 seconds)</font><br />
 </tt>
 </body>
 </html>
