@@ -32,8 +32,8 @@ struct Pictures
  int h ;
  int w_shr ;
  int h_shr ;
- bool vizible;
  string contegor;
+ bool vizible;
  void draw()
  {
 
@@ -85,31 +85,45 @@ txSetColor (TX_RED,10);
  }
 
 
-string DialogFile(bool)
+string DialogFile(bool isSave)
 {
  string  filename = "";
-  OPENFILE ofn = {0};
+  OPENFILENAME ofn = {0};
   TCHAR szFile[260]={0};
-  ZeroMemory(&,sizeof(ofn))
+  ZeroMemory(&ofn,sizeof(ofn));
   ofn.lStructSize = sizeof(ofn);
   ofn.hwndOwner = txWindow();
-  ofn.lpstrFile =
-  ofn.nMaxFile =
-  ofn.lpstrFilter
-  ofn.nFilterIndex
-  ofn.l
-  ofn.
-  ofn.l
-  ofn.
+  ofn.lpstrFile = szFile;
+  ofn.nMaxFile = sizeof(szFile);
+  ofn.lpstrFilter =("Text\0*.TXT\0");
+  ofn.nFilterIndex = 1;
+  ofn.lpstrFileTitle = NULL;
+  ofn.nMaxFileTitle = 0;
+  ofn.lpstrInitialDir =NULL;
+  ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST;
 
+  if(isSave)
+   {
+    if(GetSaveFileName(&ofn) == TRUE)
+     {
+      filename = ofn.lpstrFile;
+      filename = filename + ".txt";
+     }
+   }
+   else
+   {
+     if(GetOpenFileName(&ofn) == TRUE)
+      {
+       filename = ofn.lpstrFile;
+      }
+   }
 
-
-
-
+  return filename;
 }
+
 int main()
 {
-txCreateWindow (1540, 800);
+txCreateWindow (1500, 760);
 txTextCursor (false);
 
      int count_pic = 19;
@@ -134,35 +148,37 @@ txTextCursor (false);
 
 
      Pictures pic[count_pic];
-     pic[0]={10,100,"картинки/расы/кенку.bmp",txLoadImage ("картинки/расы/кенку.bmp"),564,729,80,100,false,"Раса"};
-     pic[1]={10,200,"картинки/расы/орк.bmp",txLoadImage ("картинки/расы/орк.bmp"),216,281,80,100,false,"Раса"};
-     pic[2]={10,300,"картинки/расы/дварф.bmp",txLoadImage ("картинки/расы/дварф.bmp"),184,274,80,100,false,"Раса"};
-     pic[3]={10,400,"картинки/расы/кот.bmp",txLoadImage ("картинки/расы/кот.bmp"),209,241,80,100,false,"Раса"};
-     pic[4]={10,500,"картинки/расы/гоблин.bmp",txLoadImage ("картинки/расы/гоблин.bmp"),216,497,80,100,false,"Раса"};
-     pic[5]={10,600,"картинки/расы/грунг.bmp",txLoadImage ("картинки/расы/грунг.bmp"),184,274,80,100,false,"Раса"};
-     pic[6]={10,700,"картинки/расы/ааракана.bmp",txLoadImage ("картинки/расы/ааракана.bmp"),216,208,80,100,false,"Раса"};
-     pic[7]={60,100,"картинки/расы/автогном.bmp",txLoadImage ("картинки/расы/автогном.bmp"),216,324,80,100,false,"Раса"};
-     pic[8]={60,200,"картинки/расы/плазмоид.bmp",txLoadImage ("картинки/расы/плазмоид.bmp"),209,241,80,100,false,"Раса"};
-     pic[9]={60,300,"картинки/расы/кованый.bmp",txLoadImage ("картинки/расы/кованый.bmp"),287,512,80,100,false,"Раса"};
+     pic[0]={10,100,"картинки/расы/кенку.bmp",txLoadImage ("картинки/расы/кенку.bmp"),564,729,80,100,"Раса"};
+     pic[1]={10,200,"картинки/расы/орк.bmp",txLoadImage ("картинки/расы/орк.bmp"),216,281,80,100,"Раса"};
+     pic[2]={10,300,"картинки/расы/дварф.bmp",txLoadImage ("картинки/расы/дварф.bmp"),184,274,80,100,"Раса"};
+     pic[3]={10,400,"картинки/расы/кот.bmp",txLoadImage ("картинки/расы/кот.bmp"),209,241,80,100,"Раса"};
+     pic[4]={10,500,"картинки/расы/гоблин.bmp",txLoadImage ("картинки/расы/гоблин.bmp"),216,497,80,100,"Раса"};
+     pic[5]={10,600,"картинки/расы/грунг.bmp",txLoadImage ("картинки/расы/грунг.bmp"),184,274,80,100,"Раса"};
+     pic[6]={10,700,"картинки/расы/ааракана.bmp",txLoadImage ("картинки/расы/ааракана.bmp"),216,208,80,100,"Раса"};
+     pic[7]={60,100,"картинки/расы/автогном.bmp",txLoadImage ("картинки/расы/автогном.bmp"),216,324,80,100,"Раса"};
+     pic[8]={60,200,"картинки/расы/плазмоид.bmp",txLoadImage ("картинки/расы/плазмоид.bmp"),209,241,80,100,"Раса"};
+     pic[9]={60,300,"картинки/расы/кованый.bmp",txLoadImage ("картинки/расы/кованый.bmp"),287,512,80,100,"Раса"};
 
-     pic[10]={10,100,"картинки/броня/шляпа.bmp",txLoadImage ("картинки/броня/шляпа.bmp"),225,225,80,100,false,"одежда"};
-     pic[11]={10,200,"картинки/броня/нагрудник.bmp",txLoadImage ("картинки/броня/нагрудник.bmp"),225,225,80,100,false,"одежда"};
-     pic[12]={10,300,"картинки/броня/маска.bmp",txLoadImage ("картинки/броня/маска.bmp"),194,257,80,100,false,"одежда"};
-     pic[13]={10,400,"картинки/броня/чума.bmp",txLoadImage ("картинки/броня/чума.bmp"),225,225,80,100,false,"одежда"};
-     pic[14]={10,500,"картинки/броня/шлем.bmp",txLoadImage ("картинки/броня/шлем.bmp"),219,230,80,100,false,"одежда"};
-     pic[15]={10,600,"картинки/броня/ковбой.bmp",txLoadImage ("картинки/броня/ковбой.bmp"),225,225,80,100,false,"одежда"};
+     pic[10]={10,100,"картинки/броня/шляпа.bmp",txLoadImage ("картинки/броня/шляпа.bmp"),225,225,80,100,"одежда"};
+     pic[11]={10,200,"картинки/броня/нагрудник.bmp",txLoadImage ("картинки/броня/нагрудник.bmp"),225,225,80,100,"одежда"};
+     pic[12]={10,300,"картинки/броня/маска.bmp",txLoadImage ("картинки/броня/маска.bmp"),194,257,80,100,"одежда"};
+     pic[13]={10,400,"картинки/броня/чума.bmp",txLoadImage ("картинки/броня/чума.bmp"),225,225,80,100,"одежда"};
+     pic[14]={10,500,"картинки/броня/шлем.bmp",txLoadImage ("картинки/броня/шлем.bmp"),219,230,80,100,"одежда"};
+     pic[15]={10,600,"картинки/броня/ковбой.bmp",txLoadImage ("картинки/броня/ковбой.bmp"),225,225,80,100,"одежда"};
 
-     pic[16]={10,100,"картинки/питомцы/акулака.bmp",txLoadImage ("картинки/питомцы/акулака.bmp"),169,110,100,80,false,"питомцы"};
-     pic[17]={10,200,"картинки/питомцы/курица.bmp",txLoadImage ("картинки/питомцы/курица.bmp"),300,300,100,100,false,"питомцы"};
-     pic[18]={10,300,"картинки/питомцы/дракон.bmp",txLoadImage ("картинки/питомцы/дракон.bmp"),215,117,100,80,false,"питомцы"};
+     pic[16]={10,100,"картинки/питомцы/акулака.bmp",txLoadImage ("картинки/питомцы/акулака.bmp"),169,110,100,80,"питомцы"};
+     pic[17]={10,200,"картинки/питомцы/курица.bmp",txLoadImage ("картинки/питомцы/курица.bmp"),300,300,100,100,"питомцы"};
+     pic[18]={10,300,"картинки/питомцы/дракон.bmp",txLoadImage ("картинки/питомцы/дракон.bmp"),215,117,100,80,"питомцы"};
 
     // pic[19]={10,100,,txLoadImage ("картинки/броня/маска.bmp"),194,257,80,100,false,"оружее"};
      //pic[20]={10,200,,txLoadImage ("картинки/броня/чума.bmp"),225,225,80,100,false,"оружее"};
      //pic[21]={10,300,,txLoadImage ("картинки/броня/шлем.bmp"),219,230,80,100,false,"оружее"};
      //pic[22]={10,400,,txLoadImage ("картинки/броня/ковбой.bmp"),225,225,80,100,false,"оружее"};
 
-
-
+       for(int i=0;i< count_butn;i++)
+       {
+        pic[i].vizible = false;
+       }
 
 
 
@@ -231,8 +247,8 @@ txTextCursor (false);
                                         pic[npic].h,
                                         pic[npic].w_shr,
                                         pic[npic].h_shr,
-                                        pic[npic].vizible,
-                                        pic[npic].contegor
+                                        pic[npic].contegor,
+                                        pic[npic].vizible
                                         };
                 nCentrPic++;
             }
@@ -273,6 +289,21 @@ txTextCursor (false);
 
            if(vybor>=0)
              {
+              if(txMouseButtons() == 1 && !mause_down)
+               {
+                centr_pic[vybor].x = txMouseX() - centr_pic[vybor].w_shr/2;
+                centr_pic[vybor].y = txMouseY() - centr_pic[vybor].w_shr/2;
+               }
+               else
+               {
+               if(txMouseButtons() != 1)
+                {
+                mause_down = true;
+                }
+
+               }
+
+
               if(GetAsyncKeyState (VK_UP))
                {
                 centr_pic[vybor].y -= 5;
@@ -291,20 +322,15 @@ txTextCursor (false);
                }
             if(GetAsyncKeyState (VK_OEM_PLUS))
                {
-                centr_pic[vybor].w_shr*1.05;
-                centr_pic[vybor].h_shr*1.05;
+                centr_pic[vybor].w_shr = centr_pic[vybor].w_shr*1.15;
+                centr_pic[vybor].h_shr = centr_pic[vybor].h_shr*1.15;
                }
               if(GetAsyncKeyState (VK_OEM_MINUS))
                {
-                centr_pic[vybor].w_shr*0.95;
-                centr_pic[vybor].h_shr*0.95;
-
-            if(centr_pic[vybor].w<10 && centr_pic[vybor].h<10)
-                {
-                 centr_pic[vybor].w=10;
-                 centr_pic[vybor].h=10;
-                }
+                centr_pic[vybor].w_shr = centr_pic[vybor].w_shr*0.95;
+                centr_pic[vybor].h_shr = centr_pic[vybor].h_shr*0.95;
                }
+
 
 
                }
@@ -315,7 +341,7 @@ txTextCursor (false);
             }
             if(butn[butn_save].click())
              {
-               string filename =  DialogFile();
+               string filename =  DialogFile(true);
 
                ofstream fileout;
                fileout.open(filename);
@@ -336,6 +362,8 @@ txTextCursor (false);
 
              if(butn[butn_load].click())
              {
+                string filename =  DialogFile(false);
+
                char buff[50];
                ifstream filein(filename);
                 while(filein.good())
@@ -364,8 +392,8 @@ txTextCursor (false);
                                                 pic[i].h,
                                                 w_shr,
                                                 h_shr,
-                                                true,
-                                                pic[i].contegor
+                                                pic[i].contegor,
+                                                true
                                             };
                         nCentrPic++;
                    }
