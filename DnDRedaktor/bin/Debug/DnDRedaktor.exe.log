@@ -1,0 +1,3237 @@
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe, файл: c:\codeblocks\codeblocks\mingw\include\txlib.h, строка: 14245, функция: intptr_t {anonymous}::TX::txPlayVideo(int, int, int, int, const char*, double, double, HWND),
+
+Сообщение: Возможно, окно рисования не создано или не в порядке.
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005042FC (32-bit), Flags: CMdre0, Thread: 0x2BE8 (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004266A8 in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: txPlayVideo() at c:/codeblocks/codeblocks/mingw/include/txlib.h (14245)
+# 1 0x00427857 in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: txPlayVideo() at c:/codeblocks/codeblocks/mingw/include/txlib.h (14397)
+# 2 0x0040570B in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _txCleanup() at c:/codeblocks/codeblocks/mingw/include/txlib.h (9082)
+# 3 0x00404996 in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _txOnCExit() at c:/codeblocks/codeblocks/mingw/include/txlib.h (8894)
+# 4 0x00401284 in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: __mingw_CRTStartup()
+# 5 0x004012C5 in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: WinMainCRTStartup()
+# 6 0x775580CE in C:\Windows\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+# 7 0x7755809E in C:\Windows\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in intptr_t {anonymous}::TX::txPlayVideo(int, int, int, int, const char*, double, double, HWND) at c:\codeblocks\codeblocks\mingw\include\txlib.h (14245):
+
+  14243:                       double zoom /*= 0*/, double gain /*= 1*/, HWND wnd /*= txWindow()*/)
+  14244:     {
+=>14245: $1  if (wnd && wnd == txWindow() && _TX_TXWINDOW_FAILED()) return -1;
+  14246: 
+  14247: $   int time = GetTickCount();  //-V2551
+
+# 1 in intptr_t {anonymous}::TX::txPlayVideo(const char*, double, double, HWND) at c:\codeblocks\codeblocks\mingw\include\txlib.h (14397):
+
+  14395: intptr_t txPlayVideo (const char fileName[], double zoom /*= 0*/, double gain /*= 0*/, HWND wnd /*= txWindow()*/)
+  14396:     {
+=>14397: $1  return txPlayVideo (0, 0, 0, 0, fileName, zoom, gain, wnd);
+  14398:     }
+  14399: 
+
+# 2 in void {anonymous}::TX::_txCleanup() at c:\codeblocks\codeblocks\mingw\include\txlib.h (9082):
+
+   9080: 
+   9081: $   txSpeak     (NULL);
+=> 9082: $   txPlayVideo (NULL);
+   9083: 
+   9084: $   delete _txCanvas_UserDCs;
+
+# 3 in void {anonymous}::TX::_txOnCExit() at c:\codeblocks\codeblocks\mingw\include\txlib.h (8894):
+
+   8892:     OutputDebugString ("\n");
+   8893: 
+=> 8894: $5  _txCleanup();
+   8895: 
+   8896:     _TX_CALLv (Win32::_cexit, ());
+
+# 4 in int main() at C:\Users\user\Desktop\dnd\DnDRedaktor\main.cpp (67):
+
+     65:     txTextOut (425, 85, "C++");
+     66: 
+=>   67:     txTextCursor (false);
+     68:     return 0;
+     69:     }
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Sep 13 2024 17:20:36, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Sep 13 2024 17:20:55
+
+Run file:	C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	C:\Users\user\Desktop\dnd\DnDRedaktor
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0045284C в функции _M_is_leaked() в файле c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h на строке 45. Попытка прочесть данные по адресу 0x00730073 в модуле C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005092FC (32-bit), Flags: CMdRe0, Thread: 0x940 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0045284C in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _M_is_leaked() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 1 0x0048190B in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: swap() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x004892D9 in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 3 0x0044D0EA in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 4 0x0042D0CC in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: main() at C:/Users/user/Desktop/dnd/DnDRedaktor/main.cpp (123):
+
+    121:      pic[13]={10,400,txLoadImage ("картинки/броня/чума.bmp"),225,225,80,100,false,"одежда"};
+    122:      pic[14]={10,500,txLoadImage ("картинки/броня/шлем.bmp"),219,230,80,100,false,"одежда"};
+=>  123:      pic[15]={10,600,txLoadImage ("картинки/броня/ковбой.bmp"),225,225,80,100,false,"одежда"};
+    124: 
+    125:      int vybor = 1;
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in int main() at C:\Users\user\Desktop\dnd\DnDRedaktor\main.cpp (123):
+
+    121:      pic[13]={10,400,txLoadImage ("картинки/броня/чума.bmp"),225,225,80,100,false,"одежда"};
+    122:      pic[14]={10,500,txLoadImage ("картинки/броня/шлем.bmp"),219,230,80,100,false,"одежда"};
+=>  123:      pic[15]={10,600,txLoadImage ("картинки/броня/ковбой.bmp"),225,225,80,100,false,"одежда"};
+    124: 
+    125:      int vybor = 1;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Oct 14 2024 17:26:34, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 14 2024 17:27:00
+
+Run file:	C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	C:\Users\user\Desktop\dnd\DnDRedaktor
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0045284C в функции _M_is_leaked() в файле c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h на строке 45. Попытка прочесть данные по адресу 0x00730073 в модуле C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005092FC (32-bit), Flags: CMdRe0, Thread: 0x940 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0045284C in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _M_is_leaked() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 1 0x0048190B in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: swap() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x004892D9 in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 3 0x0044D0EA in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 4 0x0042D0CC in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: main() at C:/Users/user/Desktop/dnd/DnDRedaktor/main.cpp (123):
+
+    121:      pic[13]={10,400,txLoadImage ("картинки/броня/чума.bmp"),225,225,80,100,false,"одежда"};
+    122:      pic[14]={10,500,txLoadImage ("картинки/броня/шлем.bmp"),219,230,80,100,false,"одежда"};
+=>  123:      pic[15]={10,600,txLoadImage ("картинки/броня/ковбой.bmp"),225,225,80,100,false,"одежда"};
+    124: 
+    125:      int vybor = 1;
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in int main() at C:\Users\user\Desktop\dnd\DnDRedaktor\main.cpp (123):
+
+    121:      pic[13]={10,400,txLoadImage ("картинки/броня/чума.bmp"),225,225,80,100,false,"одежда"};
+    122:      pic[14]={10,500,txLoadImage ("картинки/броня/шлем.bmp"),219,230,80,100,false,"одежда"};
+=>  123:      pic[15]={10,600,txLoadImage ("картинки/броня/ковбой.bmp"),225,225,80,100,false,"одежда"};
+    124: 
+    125:      int vybor = 1;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Oct 14 2024 17:26:34, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 14 2024 17:27:00
+
+Run file:	C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	C:\Users\user\Desktop\dnd\DnDRedaktor
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x75BE9618 в функции strchr(). Попытка прочесть данные по адресу 0x000001F4 в модуле C:\Windows\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005092FC (32-bit), Flags: CMdRe0, Thread: 0x2074 (Main), GetLastError(): 6 (Неверный дескриптор). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x75BE9618 in C:\Windows\System32\msvcrt.dll: strchr()
+
+# 1 0x0044CD7A in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: draw() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x0042D2EA in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: main() at C:/Users/user/Desktop/dnd/DnDRedaktor/main.cpp (140):
+
+    138:         for(int i=0;i<4;i++)
+    139:         {
+=>  140:             butn[i].draw();
+    141:         }
+    142: 
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txDrawText(double, double, double, double, const char*, unsigned int, HDC) at c:\codeblocks\codeblocks\mingw\include\txlib.h (13403):
+
+  13401: $   RECT r = { ROUND (x0), ROUND (y0), ROUND (x1), ROUND (y1) };
+  13402: 
+=>13403: $   if (!strchr (text, '\n')) format |= DT_SINGLELINE;
+  13404: 
+  13405: $   unsigned prev = txSetTextAlign (TA_LEFT | TA_TOP | TA_NOUPDATECP, dc);
+
+# 1 in void Button::draw() at C:\Users\user\Desktop\dnd\DnDRedaktor\main.cpp (64):
+
+     62:     Win32::RoundRect (txDC(),x, y, x+w, y+h,30,30);
+     63:     txSelectFont("Time New Roman",15);
+=>   64:     txDrawText(x, y, x+w, y+h,text);
+     65: 
+     66:  }
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Oct 14 2024 17:39:49, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 14 2024 17:40:13
+
+Run file:	C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	C:\Users\user\Desktop\dnd\DnDRedaktor
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x75BE9618 в функции strchr(). Попытка прочесть данные по адресу 0x000001F4 в модуле C:\Windows\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005092FC (32-bit), Flags: CMdRe0, Thread: 0x2074 (Main), GetLastError(): 6 (Неверный дескриптор). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x75BE9618 in C:\Windows\System32\msvcrt.dll: strchr()
+
+# 1 0x0044CD7A in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: draw() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x0042D2EA in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: main() at C:/Users/user/Desktop/dnd/DnDRedaktor/main.cpp (140):
+
+    138:         for(int i=0;i<4;i++)
+    139:         {
+=>  140:             butn[i].draw();
+    141:         }
+    142: 
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txDrawText(double, double, double, double, const char*, unsigned int, HDC) at c:\codeblocks\codeblocks\mingw\include\txlib.h (13403):
+
+  13401: $   RECT r = { ROUND (x0), ROUND (y0), ROUND (x1), ROUND (y1) };
+  13402: 
+=>13403: $   if (!strchr (text, '\n')) format |= DT_SINGLELINE;
+  13404: 
+  13405: $   unsigned prev = txSetTextAlign (TA_LEFT | TA_TOP | TA_NOUPDATECP, dc);
+
+# 1 in void Button::draw() at C:\Users\user\Desktop\dnd\DnDRedaktor\main.cpp (64):
+
+     62:     Win32::RoundRect (txDC(),x, y, x+w, y+h,30,30);
+     63:     txSelectFont("Time New Roman",15);
+=>   64:     txDrawText(x, y, x+w, y+h,text);
+     65: 
+     66:  }
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Oct 14 2024 17:39:49, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 14 2024 17:40:13
+
+Run file:	C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	C:\Users\user\Desktop\dnd\DnDRedaktor
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x75BE9618 в функции strchr(). Попытка прочесть данные по адресу 0x000001F4 в модуле C:\Windows\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005092FC (32-bit), Flags: CMdRe0, Thread: 0x26F8 (Main), GetLastError(): 6 (Неверный дескриптор). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x75BE9618 in C:\Windows\System32\msvcrt.dll: strchr()
+
+# 1 0x0044CD7A in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: draw() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x0042D2EA in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: main() at C:/Users/user/Desktop/dnd/DnDRedaktor/main.cpp (140):
+
+    138:         for(int i=0;i<4;i++)
+    139:         {
+=>  140:             butn[i].draw();
+    141:         }
+    142: 
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txDrawText(double, double, double, double, const char*, unsigned int, HDC) at c:\codeblocks\codeblocks\mingw\include\txlib.h (13403):
+
+  13401: $   RECT r = { ROUND (x0), ROUND (y0), ROUND (x1), ROUND (y1) };
+  13402: 
+=>13403: $   if (!strchr (text, '\n')) format |= DT_SINGLELINE;
+  13404: 
+  13405: $   unsigned prev = txSetTextAlign (TA_LEFT | TA_TOP | TA_NOUPDATECP, dc);
+
+# 1 in void Button::draw() at C:\Users\user\Desktop\dnd\DnDRedaktor\main.cpp (64):
+
+     62:     Win32::RoundRect (txDC(),x, y, x+w, y+h,30,30);
+     63:     txSelectFont("Time New Roman",15);
+=>   64:     txDrawText(x, y, x+w, y+h,text);
+     65: 
+     66:  }
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Oct 14 2024 18:08:24, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 14 2024 18:08:47
+
+Run file:	C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	C:\Users\user\Desktop\dnd\DnDRedaktor
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x75BE9618 в функции strchr(). Попытка прочесть данные по адресу 0x000001F4 в модуле C:\Windows\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005092FC (32-bit), Flags: CMdRe0, Thread: 0x26F8 (Main), GetLastError(): 6 (Неверный дескриптор). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x75BE9618 in C:\Windows\System32\msvcrt.dll: strchr()
+
+# 1 0x0044CD7A in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: draw() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x0042D2EA in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: main() at C:/Users/user/Desktop/dnd/DnDRedaktor/main.cpp (140):
+
+    138:         for(int i=0;i<4;i++)
+    139:         {
+=>  140:             butn[i].draw();
+    141:         }
+    142: 
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txDrawText(double, double, double, double, const char*, unsigned int, HDC) at c:\codeblocks\codeblocks\mingw\include\txlib.h (13403):
+
+  13401: $   RECT r = { ROUND (x0), ROUND (y0), ROUND (x1), ROUND (y1) };
+  13402: 
+=>13403: $   if (!strchr (text, '\n')) format |= DT_SINGLELINE;
+  13404: 
+  13405: $   unsigned prev = txSetTextAlign (TA_LEFT | TA_TOP | TA_NOUPDATECP, dc);
+
+# 1 in void Button::draw() at C:\Users\user\Desktop\dnd\DnDRedaktor\main.cpp (64):
+
+     62:     Win32::RoundRect (txDC(),x, y, x+w, y+h,30,30);
+     63:     txSelectFont("Time New Roman",15);
+=>   64:     txDrawText(x, y, x+w, y+h,text);
+     65: 
+     66:  }
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Oct 14 2024 18:08:24, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 14 2024 18:08:48
+
+Run file:	C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	C:\Users\user\Desktop\dnd\DnDRedaktor
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x75BE9618 в функции strchr(). Попытка прочесть данные по адресу 0x000001F4 в модуле C:\Windows\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005092FC (32-bit), Flags: CMdRe0, Thread: 0x256C (Main), GetLastError(): 6 (Неверный дескриптор). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x75BE9618 in C:\Windows\System32\msvcrt.dll: strchr()
+
+# 1 0x0044CD7A in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: draw() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x0042D2EA in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: main() at C:/Users/user/Desktop/dnd/DnDRedaktor/main.cpp (140):
+
+    138:         for(int i=0;i<4;i++)
+    139:         {
+=>  140:             butn[i].draw();
+    141:         }
+    142: 
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txDrawText(double, double, double, double, const char*, unsigned int, HDC) at c:\codeblocks\codeblocks\mingw\include\txlib.h (13403):
+
+  13401: $   RECT r = { ROUND (x0), ROUND (y0), ROUND (x1), ROUND (y1) };
+  13402: 
+=>13403: $   if (!strchr (text, '\n')) format |= DT_SINGLELINE;
+  13404: 
+  13405: $   unsigned prev = txSetTextAlign (TA_LEFT | TA_TOP | TA_NOUPDATECP, dc);
+
+# 1 in void Button::draw() at C:\Users\user\Desktop\dnd\DnDRedaktor\main.cpp (64):
+
+     62:     Win32::RoundRect (txDC(),x, y, x+w, y+h,30,30);
+     63:     txSelectFont("Time New Roman",15);
+=>   64:     txDrawText(x, y, x+w, y+h,text);
+     65: 
+     66:  }
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Oct 18 2024 17:03:53, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 18 2024 17:04:20
+
+Run file:	C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	C:\Users\user\Desktop\dnd\DnDRedaktor
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x75BE9618 в функции strchr(). Попытка прочесть данные по адресу 0x000001F4 в модуле C:\Windows\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005092FC (32-bit), Flags: CMdRe0, Thread: 0x256C (Main), GetLastError(): 6 (Неверный дескриптор). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x75BE9618 in C:\Windows\System32\msvcrt.dll: strchr()
+
+# 1 0x0044CD7A in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: draw() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x0042D2EA in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: main() at C:/Users/user/Desktop/dnd/DnDRedaktor/main.cpp (140):
+
+    138:         for(int i=0;i<4;i++)
+    139:         {
+=>  140:             butn[i].draw();
+    141:         }
+    142: 
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txDrawText(double, double, double, double, const char*, unsigned int, HDC) at c:\codeblocks\codeblocks\mingw\include\txlib.h (13403):
+
+  13401: $   RECT r = { ROUND (x0), ROUND (y0), ROUND (x1), ROUND (y1) };
+  13402: 
+=>13403: $   if (!strchr (text, '\n')) format |= DT_SINGLELINE;
+  13404: 
+  13405: $   unsigned prev = txSetTextAlign (TA_LEFT | TA_TOP | TA_NOUPDATECP, dc);
+
+# 1 in void Button::draw() at C:\Users\user\Desktop\dnd\DnDRedaktor\main.cpp (64):
+
+     62:     Win32::RoundRect (txDC(),x, y, x+w, y+h,30,30);
+     63:     txSelectFont("Time New Roman",15);
+=>   64:     txDrawText(x, y, x+w, y+h,text);
+     65: 
+     66:  }
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Oct 18 2024 17:03:53, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 18 2024 17:04:20
+
+Run file:	C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	C:\Users\user\Desktop\dnd\DnDRedaktor
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x75BE9618 в функции strchr(). Попытка прочесть данные по адресу 0x000001F4 в модуле C:\Windows\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005092FC (32-bit), Flags: CMdRe0, Thread: 0x3028 (Main), GetLastError(): 6 (Неверный дескриптор). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x75BE9618 in C:\Windows\System32\msvcrt.dll: strchr()
+
+# 1 0x0044D0CA in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: draw() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x0042D5D2 in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: main() at C:/Users/user/Desktop/dnd/DnDRedaktor/main.cpp (151):
+
+    149:         for(int i=0;i<4;i++)
+    150:         {
+=>  151:             butn[i].draw();
+    152:         }
+    153: 
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txDrawText(double, double, double, double, const char*, unsigned int, HDC) at c:\codeblocks\codeblocks\mingw\include\txlib.h (13403):
+
+  13401: $   RECT r = { ROUND (x0), ROUND (y0), ROUND (x1), ROUND (y1) };
+  13402: 
+=>13403: $   if (!strchr (text, '\n')) format |= DT_SINGLELINE;
+  13404: 
+  13405: $   unsigned prev = txSetTextAlign (TA_LEFT | TA_TOP | TA_NOUPDATECP, dc);
+
+# 1 in void Button::draw() at C:\Users\user\Desktop\dnd\DnDRedaktor\main.cpp (64):
+
+     62:     Win32::RoundRect (txDC(),x, y, x+w, y+h,30,30);
+     63:     txSelectFont("Time New Roman",15);
+=>   64:     txDrawText(x, y, x+w, y+h,text);
+     65: 
+     66:  }
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Oct 18 2024 18:08:50, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 18 2024 18:09:14
+
+Run file:	C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	C:\Users\user\Desktop\dnd\DnDRedaktor
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x75BE9618 в функции strchr(). Попытка прочесть данные по адресу 0x000001F4 в модуле C:\Windows\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005092FC (32-bit), Flags: CMdRe0, Thread: 0x3028 (Main), GetLastError(): 6 (Неверный дескриптор). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x75BE9618 in C:\Windows\System32\msvcrt.dll: strchr()
+
+# 1 0x0044D0CA in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: draw() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x0042D5D2 in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: main() at C:/Users/user/Desktop/dnd/DnDRedaktor/main.cpp (151):
+
+    149:         for(int i=0;i<4;i++)
+    150:         {
+=>  151:             butn[i].draw();
+    152:         }
+    153: 
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txDrawText(double, double, double, double, const char*, unsigned int, HDC) at c:\codeblocks\codeblocks\mingw\include\txlib.h (13403):
+
+  13401: $   RECT r = { ROUND (x0), ROUND (y0), ROUND (x1), ROUND (y1) };
+  13402: 
+=>13403: $   if (!strchr (text, '\n')) format |= DT_SINGLELINE;
+  13404: 
+  13405: $   unsigned prev = txSetTextAlign (TA_LEFT | TA_TOP | TA_NOUPDATECP, dc);
+
+# 1 in void Button::draw() at C:\Users\user\Desktop\dnd\DnDRedaktor\main.cpp (64):
+
+     62:     Win32::RoundRect (txDC(),x, y, x+w, y+h,30,30);
+     63:     txSelectFont("Time New Roman",15);
+=>   64:     txDrawText(x, y, x+w, y+h,text);
+     65: 
+     66:  }
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Oct 18 2024 18:08:50, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 18 2024 18:09:13
+
+Run file:	C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	C:\Users\user\Desktop\dnd\DnDRedaktor
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00452D4C в функции _M_is_leaked() в файле c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h на строке 45. Попытка прочесть данные по адресу 0x00000092 в модуле C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005092FC (32-bit), Flags: CMdRe0, Thread: 0x1070 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00452D4C in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _M_is_leaked() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 1 0x004819B3 in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _M_grab() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x00482F1D in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: assign() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 3 0x00489909 in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 4 0x0044D672 in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 5 0x0042DE2A in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: main() at C:/Users/user/Desktop/dnd/DnDRedaktor/main.cpp (278):
+
+    276:            if(vybor>=0 && GetAsyncKeyState (VK_DELETE))
+    277:             {
+=>  278:              centr_pic[vybor] = centr_pic[ nCentrPic-1];
+    279:              nCentrPic--;
+    280:             }
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in int main() at C:\Users\user\Desktop\dnd\DnDRedaktor\main.cpp (228):
+
+    226:                else
+    227:                {
+=>  228:                 if(txMouseButtons()!=1)
+    229:                  {
+    230:                    mause_down = true;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Oct 25 2024 17:05:16, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 25 2024 17:05:37
+
+Run file:	C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	C:\Users\user\Desktop\dnd\DnDRedaktor
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00452D4C в функции _M_is_leaked() в файле c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h на строке 45. Попытка прочесть данные по адресу 0x00000092 в модуле C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005092FC (32-bit), Flags: CMdRe0, Thread: 0x1070 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00452D4C in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _M_is_leaked() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 1 0x004819B3 in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _M_grab() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x00482F1D in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: assign() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 3 0x00489909 in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 4 0x0044D672 in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 5 0x0042DE2A in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: main() at C:/Users/user/Desktop/dnd/DnDRedaktor/main.cpp (278):
+
+    276:            if(vybor>=0 && GetAsyncKeyState (VK_DELETE))
+    277:             {
+=>  278:              centr_pic[vybor] = centr_pic[ nCentrPic-1];
+    279:              nCentrPic--;
+    280:             }
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in int main() at C:\Users\user\Desktop\dnd\DnDRedaktor\main.cpp (228):
+
+    226:                else
+    227:                {
+=>  228:                 if(txMouseButtons()!=1)
+    229:                  {
+    230:                    mause_down = true;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Oct 25 2024 17:05:16, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 25 2024 17:05:36
+
+Run file:	C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	C:\Users\user\Desktop\dnd\DnDRedaktor
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x004539FC в функции _M_is_leaked() в файле c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h на строке 45. Попытка прочесть данные по адресу 0xFFFFFFFC в модуле C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x0050A2FC (32-bit), Flags: CMdRe0, Thread: 0xAAC (Main), _doserrno: 2 (No such file or directory). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004539FC in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _M_is_leaked() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 1 0x00482663 in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _M_grab() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x00483BCD in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: assign() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 3 0x0048A5B9 in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 4 0x0044E2C5 in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 5 0x0042E4DB in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: main() at C:/Users/user/Desktop/dnd/DnDRedaktor/main.cpp (291):
+
+    289:            if(vybor>=0 && GetAsyncKeyState (VK_DELETE))
+    290:             {
+=>  291:              centr_pic[vybor] = centr_pic[ nCentrPic-1];
+    292:              nCentrPic--;
+    293:             }
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in int main() at C:\Users\user\Desktop\dnd\DnDRedaktor\main.cpp (241):
+
+    239:                else
+    240:                {
+=>  241:                 if(txMouseButtons()!=1)
+    242:                  {
+    243:                    mause_down = true;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Oct 28 2024 17:31:41, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 28 2024 17:32:03
+
+Run file:	C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	C:\Users\user\Desktop\dnd\DnDRedaktor
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x004539FC в функции _M_is_leaked() в файле c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h на строке 45. Попытка прочесть данные по адресу 0xFFFFFFFC в модуле C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x0050A2FC (32-bit), Flags: CMdRe0, Thread: 0xAAC (Main), _doserrno: 2 (No such file or directory). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004539FC in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _M_is_leaked() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 1 0x00482663 in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _M_grab() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x00483BCD in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: assign() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 3 0x0048A5B9 in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 4 0x0044E2C5 in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 5 0x0042E4DB in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: main() at C:/Users/user/Desktop/dnd/DnDRedaktor/main.cpp (291):
+
+    289:            if(vybor>=0 && GetAsyncKeyState (VK_DELETE))
+    290:             {
+=>  291:              centr_pic[vybor] = centr_pic[ nCentrPic-1];
+    292:              nCentrPic--;
+    293:             }
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in int main() at C:\Users\user\Desktop\dnd\DnDRedaktor\main.cpp (241):
+
+    239:                else
+    240:                {
+=>  241:                 if(txMouseButtons()!=1)
+    242:                  {
+    243:                    mause_down = true;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Oct 28 2024 17:31:41, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 28 2024 17:32:03
+
+Run file:	C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	C:\Users\user\Desktop\dnd\DnDRedaktor
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x004539FC в функции _M_is_leaked() в файле c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h на строке 45. Попытка прочесть данные по адресу 0xFFFFFFFC в модуле C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x0050A2FC (32-bit), Flags: CMdRe0, Thread: 0x1E34 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004539FC in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _M_is_leaked() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 1 0x00482663 in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _M_grab() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x00483BCD in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: assign() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 3 0x0048A5B9 in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 4 0x0044E2C5 in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 5 0x0042E4DB in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: main() at C:/Users/user/Desktop/dnd/DnDRedaktor/main.cpp (291):
+
+    289:            if(vybor>=0 && GetAsyncKeyState (VK_DELETE))
+    290:             {
+=>  291:              centr_pic[vybor] = centr_pic[ nCentrPic-1];
+    292:              nCentrPic--;
+    293:             }
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in int main() at C:\Users\user\Desktop\dnd\DnDRedaktor\main.cpp (241):
+
+    239:                else
+    240:                {
+=>  241:                 if(txMouseButtons()!=1)
+    242:                  {
+    243:                    mause_down = true;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Oct 28 2024 17:32:45, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 28 2024 17:33:05
+
+Run file:	C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	C:\Users\user\Desktop\dnd\DnDRedaktor
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x004539FC в функции _M_is_leaked() в файле c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h на строке 45. Попытка прочесть данные по адресу 0xFFFFFFFC в модуле C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x0050A2FC (32-bit), Flags: CMdRe0, Thread: 0x1E34 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004539FC in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _M_is_leaked() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 1 0x00482663 in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _M_grab() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x00483BCD in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: assign() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 3 0x0048A5B9 in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 4 0x0044E2C5 in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 5 0x0042E4DB in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: main() at C:/Users/user/Desktop/dnd/DnDRedaktor/main.cpp (291):
+
+    289:            if(vybor>=0 && GetAsyncKeyState (VK_DELETE))
+    290:             {
+=>  291:              centr_pic[vybor] = centr_pic[ nCentrPic-1];
+    292:              nCentrPic--;
+    293:             }
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in int main() at C:\Users\user\Desktop\dnd\DnDRedaktor\main.cpp (241):
+
+    239:                else
+    240:                {
+=>  241:                 if(txMouseButtons()!=1)
+    242:                  {
+    243:                    mause_down = true;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Oct 28 2024 17:32:45, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 28 2024 17:33:05
+
+Run file:	C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	C:\Users\user\Desktop\dnd\DnDRedaktor
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00453B5C в функции _M_is_leaked() в файле c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h на строке 45. Попытка прочесть данные по адресу 0xFFFFFFFC в модуле C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x0050A2FC (32-bit), Flags: CMdRe0, Thread: 0x16D0 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00453B5C in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _M_is_leaked() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 1 0x004827C3 in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _M_grab() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x00483D2D in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: assign() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 3 0x0048A719 in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 4 0x0044E425 in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 5 0x0042E4D3 in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: main() at C:/Users/user/Desktop/dnd/DnDRedaktor/main.cpp (291):
+
+    289:            if(vybor>=0 && GetAsyncKeyState (VK_DELETE))
+    290:             {
+=>  291:              centr_pic[vybor] = centr_pic[ nCentrPic-1];
+    292:              nCentrPic--;
+    293:             }
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in int main() at C:\Users\user\Desktop\dnd\DnDRedaktor\main.cpp (241):
+
+    239:                else
+    240:                {
+=>  241:                 if(txMouseButtons()!=1)
+    242:                  {
+    243:                    mause_down = true;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Oct 28 2024 17:48:02, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 28 2024 17:48:22
+
+Run file:	C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	C:\Users\user\Desktop\dnd\DnDRedaktor
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00453B5C в функции _M_is_leaked() в файле c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h на строке 45. Попытка прочесть данные по адресу 0xFFFFFFFC в модуле C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x0050A2FC (32-bit), Flags: CMdRe0, Thread: 0x16D0 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00453B5C in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _M_is_leaked() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 1 0x004827C3 in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _M_grab() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x00483D2D in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: assign() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 3 0x0048A719 in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 4 0x0044E425 in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 5 0x0042E4D3 in C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: main() at C:/Users/user/Desktop/dnd/DnDRedaktor/main.cpp (291):
+
+    289:            if(vybor>=0 && GetAsyncKeyState (VK_DELETE))
+    290:             {
+=>  291:              centr_pic[vybor] = centr_pic[ nCentrPic-1];
+    292:              nCentrPic--;
+    293:             }
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in int main() at C:\Users\user\Desktop\dnd\DnDRedaktor\main.cpp (241):
+
+    239:                else
+    240:                {
+=>  241:                 if(txMouseButtons()!=1)
+    242:                  {
+    243:                    mause_down = true;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Oct 28 2024 17:48:02, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 28 2024 17:48:22
+
+Run file:	C:\Users\user\Desktop\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	C:\Users\user\Desktop\dnd\DnDRedaktor
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+ВНЕЗАПНО: #1 (0x80010108) при выполнении кода по адресу 0x762A0E52 в функции RaiseException() в модуле C:\Windows\System32\KERNELBASE.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+Ой, всё (EXCEPTION_NONCONTINUABLE).
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x0050A2FC (32-bit), Flags: CMdRe0, Thread: 0x1580. 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x762A0E52 in C:\Windows\System32\KERNELBASE.dll: RaiseException()
+# 1 0x757A3B1E in C:\Windows\System32\RPCRT4.dll: RpcRaiseException()
+# 2 0x7749767B in C:\Windows\System32\combase.dll: WindowsCompareStringOrdinal()
+# 3 0x75796943 in C:\Windows\System32\RPCRT4.dll: NdrClientCall2()
+# 4 0x774CFB50 in C:\Windows\System32\combase.dll: ObjectStublessClient32()
+# 5 0x774C7AEF in C:\Windows\System32\combase.dll: InternalCoUnregisterDisconnectCallback()
+# 6 0x76B37C65 in C:\Windows\System32\SHELL32.dll: Ordinal900()
+# 7 0x76BA5F84 in C:\Windows\System32\SHELL32.dll: ILFindLastID()
+# 8 0x7496DE28 in C:\Windows\SYSTEM32\windows.storage.dll: CCachedShellItem_CreateInstance()
+# 9 0x7496DA4C in C:\Windows\SYSTEM32\windows.storage.dll: CCachedShellItem_CreateInstance()
+#10 0x7496D80E in C:\Windows\SYSTEM32\windows.storage.dll: CCachedShellItem_CreateInstance()
+#11 0x75A2C349 in C:\Windows\System32\shcore.dll: Ordinal245()
+#12 0x77979AB0 in C:\Windows\SYSTEM32\ntdll.dll: RtlUnwind()
+#13 0x7794607A in C:\Windows\SYSTEM32\ntdll.dll: TpCallbackIndependent()
+#14 0x75A9FCC9 in C:\Windows\System32\KERNEL32.dll: BaseThreadInitThunk()
+#15 0x7797809E in C:\Windows\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+#16 0x7797806E in C:\Windows\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Nov 11 2024 17:46:02, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 11 2024 17:46:22
+
+Run file:	D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+ВНЕЗАПНО: #1 (0x80010108) при выполнении кода по адресу 0x762A0E52 в функции RaiseException() в модуле C:\Windows\System32\KERNELBASE.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+Ой, всё (EXCEPTION_NONCONTINUABLE).
+
+С помощью функции _set_se_translator() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x0050A2FC (32-bit), Flags: CMdRe0, Thread: 0x1580. 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x762A0E52 in C:\Windows\System32\KERNELBASE.dll: RaiseException()
+# 1 0x757A3B1E in C:\Windows\System32\RPCRT4.dll: RpcRaiseException()
+# 2 0x7749767B in C:\Windows\System32\combase.dll: WindowsCompareStringOrdinal()
+# 3 0x75796943 in C:\Windows\System32\RPCRT4.dll: NdrClientCall2()
+# 4 0x774CFB50 in C:\Windows\System32\combase.dll: ObjectStublessClient32()
+# 5 0x774C7AEF in C:\Windows\System32\combase.dll: InternalCoUnregisterDisconnectCallback()
+# 6 0x76B37C65 in C:\Windows\System32\SHELL32.dll: Ordinal900()
+# 7 0x76BA5F84 in C:\Windows\System32\SHELL32.dll: ILFindLastID()
+# 8 0x7496DE28 in C:\Windows\SYSTEM32\windows.storage.dll: CCachedShellItem_CreateInstance()
+# 9 0x7496DA4C in C:\Windows\SYSTEM32\windows.storage.dll: CCachedShellItem_CreateInstance()
+#10 0x7496D80E in C:\Windows\SYSTEM32\windows.storage.dll: CCachedShellItem_CreateInstance()
+#11 0x75A2C349 in C:\Windows\System32\shcore.dll: Ordinal245()
+#12 0x77979AB0 in C:\Windows\SYSTEM32\ntdll.dll: RtlUnwind()
+#13 0x7794607A in C:\Windows\SYSTEM32\ntdll.dll: TpCallbackIndependent()
+#14 0x75A9FCC9 in C:\Windows\System32\KERNEL32.dll: BaseThreadInitThunk()
+#15 0x7797809E in C:\Windows\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+#16 0x7797806E in C:\Windows\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Nov 11 2024 17:46:02, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 11 2024 17:46:21
+
+Run file:	D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0045453C в функции _M_is_leaked() в файле c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h на строке 45. Попытка прочесть данные по адресу 0xFFFFFFFC в модуле D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x0050A2FC (32-bit), Flags: CMdRe0, Thread: 0x22C0 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0045453C in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _M_is_leaked() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 1 0x00482F73 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _M_grab() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x004844A5 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: assign() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 3 0x0048AD6D in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 4 0x0044ED55 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 5 0x0042ED0A in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: main() at D:/усы шрека/Яковлев Иван/DnDRedaktor-main/DnDRedaktor-main/dnd/DnDRedaktor/main.cpp (355):
+
+    353:            if(vybor>=0 && GetAsyncKeyState (VK_DELETE))
+    354:             {
+=>  355:              centr_pic[vybor] = centr_pic[ nCentrPic-1];
+    356:              nCentrPic--;
+    357:             }
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in int main() at D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp (315):
+
+    313:                else
+    314:                {
+=>  315:                if(txMouseButtons() != 1)
+    316:                 {
+    317:                 mause_down = true;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Nov 15 2024 18:01:14, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 15 2024 18:01:34
+
+Run file:	D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0045453C в функции _M_is_leaked() в файле c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h на строке 45. Попытка прочесть данные по адресу 0xFFFFFFFC в модуле D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x0050A2FC (32-bit), Flags: CMdRe0, Thread: 0x22C0 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0045453C in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _M_is_leaked() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 1 0x00482F73 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _M_grab() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x004844A5 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: assign() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 3 0x0048AD6D in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 4 0x0044ED55 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 5 0x0042ED0A in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: main() at D:/усы шрека/Яковлев Иван/DnDRedaktor-main/DnDRedaktor-main/dnd/DnDRedaktor/main.cpp (355):
+
+    353:            if(vybor>=0 && GetAsyncKeyState (VK_DELETE))
+    354:             {
+=>  355:              centr_pic[vybor] = centr_pic[ nCentrPic-1];
+    356:              nCentrPic--;
+    357:             }
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in int main() at D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp (315):
+
+    313:                else
+    314:                {
+=>  315:                if(txMouseButtons() != 1)
+    316:                 {
+    317:                 mause_down = true;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Nov 15 2024 18:01:14, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 15 2024 18:01:34
+
+Run file:	D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00454A3C в функции _M_is_leaked() в файле c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h на строке 45. Попытка прочесть данные по адресу 0x00000035 в модуле D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x0050B2FC (32-bit), Flags: CMdRe0, Thread: 0x1ED0 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00454A3C in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _M_is_leaked() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 1 0x00483473 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _M_grab() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x004849A5 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: assign() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 3 0x0048B26D in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 4 0x0044F2AA in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 5 0x0042F16E in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: main() at D:/усы шрека/Яковлев Иван/DnDRedaktor-main/DnDRedaktor-main/dnd/DnDRedaktor/main.cpp (369):
+
+    367:            if(vybor>=0 && GetAsyncKeyState (VK_DELETE))
+    368:             {
+=>  369:              centr_pic[vybor] = centr_pic[ nCentrPic-1];
+    370:              nCentrPic--;
+    371:             }
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in int main() at D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp (325):
+
+    323:                {
+    324:                 centr_pic[vybor].x = txMouseX() - centr_pic[vybor].w_shr/2;
+=>  325:                 centr_pic[vybor].y = txMouseY() - centr_pic[vybor].w_shr/2;
+    326:                }
+    327:                else
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Nov 18 2024 17:30:52, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 18 2024 17:31:11
+
+Run file:	D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00454A3C в функции _M_is_leaked() в файле c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h на строке 45. Попытка прочесть данные по адресу 0x00000035 в модуле D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x0050B2FC (32-bit), Flags: CMdRe0, Thread: 0x1ED0 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00454A3C in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _M_is_leaked() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 1 0x00483473 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _M_grab() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x004849A5 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: assign() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 3 0x0048B26D in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 4 0x0044F2AA in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 5 0x0042F16E in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: main() at D:/усы шрека/Яковлев Иван/DnDRedaktor-main/DnDRedaktor-main/dnd/DnDRedaktor/main.cpp (369):
+
+    367:            if(vybor>=0 && GetAsyncKeyState (VK_DELETE))
+    368:             {
+=>  369:              centr_pic[vybor] = centr_pic[ nCentrPic-1];
+    370:              nCentrPic--;
+    371:             }
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in int main() at D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp (325):
+
+    323:                {
+    324:                 centr_pic[vybor].x = txMouseX() - centr_pic[vybor].w_shr/2;
+=>  325:                 centr_pic[vybor].y = txMouseY() - centr_pic[vybor].w_shr/2;
+    326:                }
+    327:                else
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Nov 18 2024 17:30:52, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 18 2024 17:31:11
+
+Run file:	D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00454A3C в функции _M_is_leaked() в файле c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h на строке 45. Попытка прочесть данные по адресу 0xFFFFFFFC в модуле D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x0050B2FC (32-bit), Flags: CMdRe0, Thread: 0x2BD8 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00454A3C in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _M_is_leaked() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 1 0x00483473 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _M_grab() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x004849A5 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: assign() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 3 0x0048B26D in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 4 0x0044F255 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 5 0x0042F16E in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: main() at D:/усы шрека/Яковлев Иван/DnDRedaktor-main/DnDRedaktor-main/dnd/DnDRedaktor/main.cpp (372):
+
+    370:            if(vybor>=0 && GetAsyncKeyState (VK_DELETE))
+    371:             {
+=>  372:              centr_pic[vybor] = centr_pic[ nCentrPic-1];
+    373:              nCentrPic--;
+    374:             }
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in int main() at D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp (332):
+
+    330:                else
+    331:                {
+=>  332:                if(txMouseButtons() != 1)
+    333:                 {
+    334:                 mause_down = true;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Nov 18 2024 17:41:44, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 18 2024 17:42:02
+
+Run file:	D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00454A3C в функции _M_is_leaked() в файле c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h на строке 45. Попытка прочесть данные по адресу 0xFFFFFFFC в модуле D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x0050B2FC (32-bit), Flags: CMdRe0, Thread: 0x2BD8 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00454A3C in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _M_is_leaked() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 1 0x00483473 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _M_grab() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x004849A5 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: assign() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 3 0x0048B26D in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 4 0x0044F255 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 5 0x0042F16E in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: main() at D:/усы шрека/Яковлев Иван/DnDRedaktor-main/DnDRedaktor-main/dnd/DnDRedaktor/main.cpp (372):
+
+    370:            if(vybor>=0 && GetAsyncKeyState (VK_DELETE))
+    371:             {
+=>  372:              centr_pic[vybor] = centr_pic[ nCentrPic-1];
+    373:              nCentrPic--;
+    374:             }
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in int main() at D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp (332):
+
+    330:                else
+    331:                {
+=>  332:                if(txMouseButtons() != 1)
+    333:                 {
+    334:                 mause_down = true;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Nov 18 2024 17:41:44, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 18 2024 17:42:03
+
+Run file:	D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00454A3C в функции _M_is_leaked() в файле c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h на строке 45. Попытка прочесть данные по адресу 0x00000035 в модуле D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x0050B2FC (32-bit), Flags: CMdRe0, Thread: 0x2F34 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00454A3C in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _M_is_leaked() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 1 0x00483473 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _M_grab() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x004849A5 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: assign() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 3 0x0048B26D in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 4 0x0044F2AA in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 5 0x0042F16E in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: main() at D:/усы шрека/Яковлев Иван/DnDRedaktor-main/DnDRedaktor-main/dnd/DnDRedaktor/main.cpp (372):
+
+    370:            if(vybor>=0 && GetAsyncKeyState (VK_DELETE))
+    371:             {
+=>  372:              centr_pic[vybor] = centr_pic[ nCentrPic-1];
+    373:              nCentrPic--;
+    374:             }
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in int main() at D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp (328):
+
+    326:                {
+    327:                 centr_pic[vybor].x = txMouseX() - centr_pic[vybor].w_shr/2;
+=>  328:                 centr_pic[vybor].y = txMouseY() - centr_pic[vybor].w_shr/2;
+    329:                }
+    330:                else
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Nov 18 2024 17:46:14, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 18 2024 17:46:33
+
+Run file:	D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00454A3C в функции _M_is_leaked() в файле c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h на строке 45. Попытка прочесть данные по адресу 0x00000035 в модуле D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x0050B2FC (32-bit), Flags: CMdRe0, Thread: 0x2F34 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00454A3C in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _M_is_leaked() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 1 0x00483473 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _M_grab() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x004849A5 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: assign() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 3 0x0048B26D in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 4 0x0044F2AA in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 5 0x0042F16E in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: main() at D:/усы шрека/Яковлев Иван/DnDRedaktor-main/DnDRedaktor-main/dnd/DnDRedaktor/main.cpp (372):
+
+    370:            if(vybor>=0 && GetAsyncKeyState (VK_DELETE))
+    371:             {
+=>  372:              centr_pic[vybor] = centr_pic[ nCentrPic-1];
+    373:              nCentrPic--;
+    374:             }
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in int main() at D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp (328):
+
+    326:                {
+    327:                 centr_pic[vybor].x = txMouseX() - centr_pic[vybor].w_shr/2;
+=>  328:                 centr_pic[vybor].y = txMouseY() - centr_pic[vybor].w_shr/2;
+    329:                }
+    330:                else
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Nov 18 2024 17:46:14, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 18 2024 17:46:34
+
+Run file:	D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00401444 в функции __atomic_add() в файле c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/ext/atomicity.h на строке 51. Попытка записать данные по адресу 0x7667F286 в модуле D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x0050B2FC (32-bit), Flags: CMdRe0, Thread: 0x2230 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00401444 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: __atomic_add() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/ext/atomicity.h (51):
+
+     49:   static inline void
+     50:   __atomic_add(volatile _Atomic_word* __mem, int __val)
+=>   51:   { __atomic_fetch_add(__mem, __val, __ATOMIC_ACQ_REL); }
+     52: #else
+     53:   _Atomic_word
+
+# 1 0x004014E1 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: __atomic_add_dispatch() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/ext/atomicity.h (94):
+
+     92: #ifdef __GTHREADS
+     93:     if (__gthread_active_p())
+=>   94:       __atomic_add(__mem, __val);
+     95:     else
+     96:       __atomic_add_single(__mem, __val);
+
+# 2 0x00483422 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _M_refcopy() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 3 0x0048351A in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _M_grab() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 4 0x00484A25 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: assign() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 5 0x0048B2ED in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 6 0x0044F2D5 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 7 0x0042F1EC in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: main() at D:/усы шрека/Яковлев Иван/DnDRedaktor-main/DnDRedaktor-main/dnd/DnDRedaktor/main.cpp (375):
+
+    373:            if(vybor>=0 && GetAsyncKeyState (VK_DELETE))
+    374:             {
+=>  375:              centr_pic[vybor] = centr_pic[ nCentrPic-1];
+    376:              nCentrPic--;
+    377:             }
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in int main() at D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp (335):
+
+    333:                else
+    334:                {
+=>  335:                if(txMouseButtons() != 1)
+    336:                 {
+    337:                 mause_down = true;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Nov 18 2024 17:52:26, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 18 2024 17:52:47
+
+Run file:	D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00401444 в функции __atomic_add() в файле c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/ext/atomicity.h на строке 51. Попытка записать данные по адресу 0x7667F286 в модуле D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x0050B2FC (32-bit), Flags: CMdRe0, Thread: 0x2230 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00401444 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: __atomic_add() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/ext/atomicity.h (51):
+
+     49:   static inline void
+     50:   __atomic_add(volatile _Atomic_word* __mem, int __val)
+=>   51:   { __atomic_fetch_add(__mem, __val, __ATOMIC_ACQ_REL); }
+     52: #else
+     53:   _Atomic_word
+
+# 1 0x004014E1 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: __atomic_add_dispatch() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/ext/atomicity.h (94):
+
+     92: #ifdef __GTHREADS
+     93:     if (__gthread_active_p())
+=>   94:       __atomic_add(__mem, __val);
+     95:     else
+     96:       __atomic_add_single(__mem, __val);
+
+# 2 0x00483422 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _M_refcopy() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 3 0x0048351A in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _M_grab() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 4 0x00484A25 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: assign() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 5 0x0048B2ED in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 6 0x0044F2D5 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 7 0x0042F1EC in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: main() at D:/усы шрека/Яковлев Иван/DnDRedaktor-main/DnDRedaktor-main/dnd/DnDRedaktor/main.cpp (375):
+
+    373:            if(vybor>=0 && GetAsyncKeyState (VK_DELETE))
+    374:             {
+=>  375:              centr_pic[vybor] = centr_pic[ nCentrPic-1];
+    376:              nCentrPic--;
+    377:             }
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in int main() at D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp (335):
+
+    333:                else
+    334:                {
+=>  335:                if(txMouseButtons() != 1)
+    336:                 {
+    337:                 mause_down = true;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Nov 18 2024 17:52:26, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 18 2024 17:52:47
+
+Run file:	D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0045525C в функции _M_is_leaked() в файле c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h на строке 45. Попытка прочесть данные по адресу 0xFFFFFFFC в модуле D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x0050B2FC (32-bit), Flags: CMdRe0, Thread: 0x34D4 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0045525C in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _M_is_leaked() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 1 0x00483D13 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _M_grab() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x00485245 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: assign() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 3 0x0048B4AD in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 4 0x0044FA75 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 5 0x0042F401 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: main() at D:/усы шрека/Яковлев Иван/DnDRedaktor-main/DnDRedaktor-main/dnd/DnDRedaktor/main.cpp (409):
+
+    407:            if(vybor>=0 && GetAsyncKeyState (VK_DELETE))
+    408:             {
+=>  409:              centr_pic[vybor] = centr_pic[ nCentrPic-1];
+    410:              nCentrPic--;
+    411:             }
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in int main() at D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp (369):
+
+    367:                else
+    368:                {
+=>  369:                if(txMouseButtons() != 1)
+    370:                 {
+    371:                 mause_down = true;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Nov 22 2024 17:32:30, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 22 2024 17:32:50
+
+Run file:	D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0045525C в функции _M_is_leaked() в файле c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h на строке 45. Попытка прочесть данные по адресу 0xFFFFFFFC в модуле D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x0050B2FC (32-bit), Flags: CMdRe0, Thread: 0x34D4 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0045525C in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _M_is_leaked() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 1 0x00483D13 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: _M_grab() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x00485245 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: assign() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 3 0x0048B4AD in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 4 0x0044FA75 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: operator=() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 5 0x0042F401 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: main() at D:/усы шрека/Яковлев Иван/DnDRedaktor-main/DnDRedaktor-main/dnd/DnDRedaktor/main.cpp (409):
+
+    407:            if(vybor>=0 && GetAsyncKeyState (VK_DELETE))
+    408:             {
+=>  409:              centr_pic[vybor] = centr_pic[ nCentrPic-1];
+    410:              nCentrPic--;
+    411:             }
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in int main() at D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp (369):
+
+    367:                else
+    368:                {
+=>  369:                if(txMouseButtons() != 1)
+    370:                 {
+    371:                 mause_down = true;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Nov 22 2024 17:32:30, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 22 2024 17:32:49
+
+Run file:	D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0048BEF5 в функции length() в файле c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h на строке 45. Попытка прочесть данные по адресу 0x00000008 в модуле D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005092FC (32-bit), Flags: CMdRe0, Thread: 0x1B18 (Main), GetLastError(): 18 (Больше файлов не осталось). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0048BEF5 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: length() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 1 0x00487F36 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x0042C16D in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: ReadFromDir() at D:/усы шрека/Яковлев Иван/DnDRedaktor-main/DnDRedaktor-main/dnd/DnDRedaktor/main.cpp (151):
+
+    149:       {
+    150: 
+=>  151:     if((string)ent->d_name !="." && (string)ent->d_name !=".." )
+    152:       {
+    153: 
+
+# 3 0x0042CA82 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: main() at D:/усы шрека/Яковлев Иван/DnDRedaktor-main/DnDRedaktor-main/dnd/DnDRedaktor/main.cpp (237):
+
+    235:      */
+    236: 
+=>  237:     count_pic = ReadFromDir("картинки/расы/",pic,count_pic);
+    238:     count_pic = ReadFromDir("картинки/Классы/",pic,count_pic);
+    239:     count_pic = ReadFromDir("картинки/одежда/",pic,count_pic);
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in int main() at D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp (201):
+
+    199:      butn[5]={1200,75,210,35,"сахранить","сахранение"};
+    200:      butn[6]={1150,105,210,35,"загрузить","загрузка"};
+=>  201:      HDC Fon =txLoadImage ("картинки/фон.bmp");
+    202: 
+    203: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Nov 22 2024 17:46:10, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 22 2024 17:46:30
+
+Run file:	D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0048BEF5 в функции length() в файле c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h на строке 45. Попытка прочесть данные по адресу 0x00000008 в модуле D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005092FC (32-bit), Flags: CMdRe0, Thread: 0x1B18 (Main), GetLastError(): 18 (Больше файлов не осталось). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0048BEF5 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: length() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 1 0x00487F36 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x0042C16D in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: ReadFromDir() at D:/усы шрека/Яковлев Иван/DnDRedaktor-main/DnDRedaktor-main/dnd/DnDRedaktor/main.cpp (151):
+
+    149:       {
+    150: 
+=>  151:     if((string)ent->d_name !="." && (string)ent->d_name !=".." )
+    152:       {
+    153: 
+
+# 3 0x0042CA82 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: main() at D:/усы шрека/Яковлев Иван/DnDRedaktor-main/DnDRedaktor-main/dnd/DnDRedaktor/main.cpp (237):
+
+    235:      */
+    236: 
+=>  237:     count_pic = ReadFromDir("картинки/расы/",pic,count_pic);
+    238:     count_pic = ReadFromDir("картинки/Классы/",pic,count_pic);
+    239:     count_pic = ReadFromDir("картинки/одежда/",pic,count_pic);
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in int main() at D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp (201):
+
+    199:      butn[5]={1200,75,210,35,"сахранить","сахранение"};
+    200:      butn[6]={1150,105,210,35,"загрузить","загрузка"};
+=>  201:      HDC Fon =txLoadImage ("картинки/фон.bmp");
+    202: 
+    203: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Nov 22 2024 17:46:10, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 22 2024 17:46:30
+
+Run file:	D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0048C1A5 в функции length() в файле c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h на строке 45. Попытка прочесть данные по адресу 0x00000008 в модуле D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005092FC (32-bit), Flags: CMdRe0, Thread: 0x990 (Main), GetLastError(): 18 (Больше файлов не осталось). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0048C1A5 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: length() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 1 0x004881E6 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x0042C16D in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: ReadFromDir() at D:/усы шрека/Яковлев Иван/DnDRedaktor-main/DnDRedaktor-main/dnd/DnDRedaktor/main.cpp (151):
+
+    149:       {
+    150: 
+=>  151:     if((string)ent->d_name !="." && (string)ent->d_name !=".." )
+    152:       {
+    153: 
+
+# 3 0x0042CA82 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: main() at D:/усы шрека/Яковлев Иван/DnDRedaktor-main/DnDRedaktor-main/dnd/DnDRedaktor/main.cpp (237):
+
+    235:      */
+    236: 
+=>  237:     count_pic = ReadFromDir("картинки/расы/",pic,count_pic);
+    238:     count_pic = ReadFromDir("картинки/Классы/",pic,count_pic);
+    239:     count_pic = ReadFromDir("картинки/одежда/",pic,count_pic);
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in int main() at D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp (201):
+
+    199:      butn[5]={1200,75,210,35,"сахранить","сахранение"};
+    200:      butn[6]={1150,105,210,35,"загрузить","загрузка"};
+=>  201:      HDC Fon =txLoadImage ("картинки/фон.bmp");
+    202: 
+    203: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Nov 22 2024 18:10:44, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 22 2024 18:11:04
+
+Run file:	D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0048C1A5 в функции length() в файле c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h на строке 45. Попытка прочесть данные по адресу 0x00000008 в модуле D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005092FC (32-bit), Flags: CMdRe0, Thread: 0x990 (Main), GetLastError(): 18 (Больше файлов не осталось). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0048C1A5 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: length() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 1 0x004881E6 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x0042C16D in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: ReadFromDir() at D:/усы шрека/Яковлев Иван/DnDRedaktor-main/DnDRedaktor-main/dnd/DnDRedaktor/main.cpp (151):
+
+    149:       {
+    150: 
+=>  151:     if((string)ent->d_name !="." && (string)ent->d_name !=".." )
+    152:       {
+    153: 
+
+# 3 0x0042CA82 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: main() at D:/усы шрека/Яковлев Иван/DnDRedaktor-main/DnDRedaktor-main/dnd/DnDRedaktor/main.cpp (237):
+
+    235:      */
+    236: 
+=>  237:     count_pic = ReadFromDir("картинки/расы/",pic,count_pic);
+    238:     count_pic = ReadFromDir("картинки/Классы/",pic,count_pic);
+    239:     count_pic = ReadFromDir("картинки/одежда/",pic,count_pic);
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in int main() at D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp (201):
+
+    199:      butn[5]={1200,75,210,35,"сахранить","сахранение"};
+    200:      butn[6]={1150,105,210,35,"загрузить","загрузка"};
+=>  201:      HDC Fon =txLoadImage ("картинки/фон.bmp");
+    202: 
+    203: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Nov 22 2024 18:10:44, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 22 2024 18:11:04
+
+Run file:	D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0048C1A5 в функции length() в файле c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h на строке 45. Попытка прочесть данные по адресу 0x00000008 в модуле D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005092FC (32-bit), Flags: CMdRe0, Thread: 0x2D2C (Main), GetLastError(): 18 (Больше файлов не осталось). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0048C1A5 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: length() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 1 0x004881E6 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x0042C16D in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: ReadFromDir() at D:/усы шрека/Яковлев Иван/DnDRedaktor-main/DnDRedaktor-main/dnd/DnDRedaktor/main.cpp (151):
+
+    149:       {
+    150: 
+=>  151:     if((string)ent->d_name !="." && (string)ent->d_name !=".." )
+    152:       {
+    153: 
+
+# 3 0x0042CA82 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: main() at D:/усы шрека/Яковлев Иван/DnDRedaktor-main/DnDRedaktor-main/dnd/DnDRedaktor/main.cpp (237):
+
+    235:      */
+    236: 
+=>  237:     count_pic = ReadFromDir("картинки/расы/",pic,count_pic);
+    238:     count_pic = ReadFromDir("картинки/Классы/",pic,count_pic);
+    239:     count_pic = ReadFromDir("картинки/одежда/",pic,count_pic);
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in int main() at D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp (201):
+
+    199:      butn[5]={1200,75,210,35,"сахранить","сахранение"};
+    200:      butn[6]={1150,105,210,35,"загрузить","загрузка"};
+=>  201:      HDC Fon =txLoadImage ("картинки/фон.bmp");
+    202: 
+    203: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Nov 22 2024 18:14:25, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 22 2024 18:14:44
+
+Run file:	D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0048C1A5 в функции length() в файле c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h на строке 45. Попытка прочесть данные по адресу 0x00000008 в модуле D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005092FC (32-bit), Flags: CMdRe0, Thread: 0x2D2C (Main), GetLastError(): 18 (Больше файлов не осталось). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0048C1A5 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: length() at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 1 0x004881E6 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe at c:/codeblocks/codeblocks/mingw/include/c++/4.8.1/debug/functions.h (45):
+
+     43:   // An arbitrary iterator pointer is not singular.
+     44:   inline bool
+=>   45:   __check_singular_aux(const void*) { return false; }
+     46: 
+     47:   // We may have an iterator that derives from _Safe_iterator_base but isn't
+
+# 2 0x0042C16D in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: ReadFromDir() at D:/усы шрека/Яковлев Иван/DnDRedaktor-main/DnDRedaktor-main/dnd/DnDRedaktor/main.cpp (151):
+
+    149:       {
+    150: 
+=>  151:     if((string)ent->d_name !="." && (string)ent->d_name !=".." )
+    152:       {
+    153: 
+
+# 3 0x0042CA82 in D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe: main() at D:/усы шрека/Яковлев Иван/DnDRedaktor-main/DnDRedaktor-main/dnd/DnDRedaktor/main.cpp (237):
+
+    235:      */
+    236: 
+=>  237:     count_pic = ReadFromDir("картинки/расы/",pic,count_pic);
+    238:     count_pic = ReadFromDir("картинки/Классы/",pic,count_pic);
+    239:     count_pic = ReadFromDir("картинки/одежда/",pic,count_pic);
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in int main() at D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\main.cpp (201):
+
+    199:      butn[5]={1200,75,210,35,"сахранить","сахранение"};
+    200:      butn[6]={1150,105,210,35,"загрузить","загрузка"};
+=>  201:      HDC Fon =txLoadImage ("картинки/фон.bmp");
+    202: 
+    203: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Nov 22 2024 18:14:25, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 22 2024 18:14:44
+
+Run file:	D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	D:\усы шрека\Яковлев Иван\DnDRedaktor-main\DnDRedaktor-main\dnd\DnDRedaktor
+
+--------------------------------------------------
