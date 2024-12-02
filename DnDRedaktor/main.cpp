@@ -75,7 +75,32 @@ struct Button
 
   }
 };
+struct Menu_Button
+{
+ int x ;
+ int y ;
+ int w ;
+ int h ;
+ const char* text;
+ string contegor;
 
+ void draw()
+ {
+    txSetColor (TX_RED,10);
+
+    txSetFillColor (TX_GRAY);
+    Win32::RoundRect (txDC(),x, y, x+w, y+h,30,30);
+    txSelectFont("Time New Roman",15);
+    txDrawText(x, y, x+w, y+h,text);
+
+ }
+
+  bool click()
+  {
+       return(txMouseButtons()==1 && txMouseX()>x && txMouseX()<x+w && txMouseY()>y && txMouseY()<y+h);
+
+  }
+  };
 void drawWorkspase(int x,int y ,int w,int h)
 {
 txSetColor (TX_RED,10);
@@ -136,116 +161,214 @@ int get_h(string adress)
   int h = *(int*)&header[22];
   return h ;
  }
+
 int ReadFromDir(string adressDir,Pictures pic[],int countFile)
 {
- DIR *dir;
- struct dirent *ent;
-int x = 10;
-int y = 100;
+    DIR *dir;
+    struct dirent *ent;
+    int X = 10;
+    int Y = 100;
 
- if ((dir = opendir(adressDir.c_str()))!=NULL);
- {
-  while((ent= readdir(dir)) != NULL);
-      {
+    if ((dir = opendir(adressDir.c_str())) != NULL)
+    {
+        while((ent = readdir(dir)) != NULL)
+        {
+            if((string)ent->d_name != "." && (string)ent->d_name != ".." )
+            {
+                pic[countFile].x = X;
+                pic[countFile].y = Y;
+                pic[countFile].adress = adressDir + (string)ent->d_name;
 
-    if((string)ent->d_name !="." && (string)ent->d_name !=".." )
-      {
+                countFile++;
+                Y+=100 ;
+            }
+        if(Y>=650)
+         {
+          X+=100 ;
+         }
+        }
+        closedir(dir);
+    }
 
-
-
-       pic[countFile].x = x;
-       pic[countFile].y = y;
-       pic[countFile].adress = adressDir + (string)ent->d_name;
-
-       countFile++;
-       y+100 ;
-
-      }
-
-     }
-  closedir(dir);
-  }
- return countFile ;
+    return countFile;
 }
 
 
 
+inline int GetFilePointer(HANDLE FileHandle)
+{
+    return SetFilePointer(FileHandle, 0, 0, FILE_CURRENT);
+}
 
+bool SaveBMPFile(char *filename, HBITMAP bitmap, HDC bitmapDC, int width, int height)
+{
+    bool Success=0;
+    HBITMAP OffscrBmp=NULL;
+    HDC OffscrDC=NULL;
+    LPBITMAPINFO lpbi=NULL;
+    LPVOID lpvBits=NULL;
+    HANDLE BmpFile=INVALID_HANDLE_VALUE;
+    BITMAPFILEHEADER bmfh;
+    if ((OffscrBmp = CreateCompatibleBitmap(bitmapDC, width, height)) == NULL)
+        return 0;
+    if ((OffscrDC = CreateCompatibleDC(bitmapDC)) == NULL)
+        return 0;
+    HBITMAP OldBmp = (HBITMAP)SelectObject(OffscrDC, OffscrBmp);
+    BitBlt(OffscrDC, 0, 0, width, height, bitmapDC, 0, 0, SRCCOPY);
+    if ((lpbi = (LPBITMAPINFO)(new char[sizeof(BITMAPINFOHEADER) + 256 * sizeof(RGBQUAD)])) == NULL)
+        return 0;
+    ZeroMemory(&lpbi->bmiHeader, sizeof(BITMAPINFOHEADER));
+    lpbi->bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
+    SelectObject(OffscrDC, OldBmp);
+    if (!GetDIBits(OffscrDC, OffscrBmp, 0, height, NULL, lpbi, DIB_RGB_COLORS))
+        return 0;
+    if ((lpvBits = new char[lpbi->bmiHeader.biSizeImage]) == NULL)
+        return 0;
+    if (!GetDIBits(OffscrDC, OffscrBmp, 0, height, lpvBits, lpbi, DIB_RGB_COLORS))
+        return 0;
+    if ((BmpFile = CreateFile(filename,
+                        GENERIC_WRITE,
+                        0, NULL,
+                        CREATE_ALWAYS,
+                        FILE_ATTRIBUTE_NORMAL,
+                        NULL)) == INVALID_HANDLE_VALUE)
+        return 0;
+    DWORD Written;
+    bmfh.bfType = 19778;
+    bmfh.bfReserved1 = bmfh.bfReserved2 = 0;
+    if (!WriteFile(BmpFile, &bmfh, sizeof(bmfh), &Written, NULL))
+        return 0;
+    if (Written < sizeof(bmfh))
+        return 0;
+    if (!WriteFile(BmpFile, &lpbi->bmiHeader, sizeof(BITMAPINFOHEADER), &Written, NULL))
+        return 0;
+    if (Written < sizeof(BITMAPINFOHEADER))
+        return 0;
+    int PalEntries;
+    if (lpbi->bmiHeader.biCompression == BI_BITFIELDS)
+        PalEntries = 3;
+    else PalEntries = (lpbi->bmiHeader.biBitCount <= 8) ?
+                      (int)(1 << lpbi->bmiHeader.biBitCount) : 0;
+    if(lpbi->bmiHeader.biClrUsed)
+    PalEntries = lpbi->bmiHeader.biClrUsed;
+    if(PalEntries){
+    if (!WriteFile(BmpFile, &lpbi->bmiColors, PalEntries * sizeof(RGBQUAD), &Written, NULL))
+        return 0;
+        if (Written < PalEntries * sizeof(RGBQUAD))
+            return 0;
+    }
+    bmfh.bfOffBits = GetFilePointer(BmpFile);
+    if (!WriteFile(BmpFile, lpvBits, lpbi->bmiHeader.biSizeImage, &Written, NULL))
+        return 0;
+    if (Written < lpbi->bmiHeader.biSizeImage)
+        return 0;
+    bmfh.bfSize = GetFilePointer(BmpFile);
+    SetFilePointer(BmpFile, 0, 0, FILE_BEGIN);
+    if (!WriteFile(BmpFile, &bmfh, sizeof(bmfh), &Written, NULL))
+        return 0;
+    if (Written < sizeof(bmfh))
+        return 0;
+
+    CloseHandle (BmpFile);
+
+    delete [] (char*)lpvBits;
+    delete [] lpbi;
+
+    DeleteDC (OffscrDC);
+    DeleteObject (OffscrBmp);
+
+
+    return 1;
+}
+
+bool ScreenCapture(int x, int y, int width, int height, char *filename, HWND hwnd)
+{
+    HDC hDC = GetDC(hwnd);
+    HDC hDc = CreateCompatibleDC(hDC);
+
+    HBITMAP hBmp = CreateCompatibleBitmap(hDC, width, height);
+
+    HGDIOBJ old= SelectObject(hDc, hBmp);
+    BitBlt(hDc, 0, 0, width, height, hDC, x, y, SRCCOPY);
+
+    bool ret = SaveBMPFile(filename, hBmp, hDc, width, height);
+
+    SelectObject(hDc, old);
+
+    DeleteObject(hBmp);
+
+    DeleteDC (hDc);
+    ReleaseDC (hwnd, hDC);
+
+    return ret;
+}
 
 int main()
 {
 txCreateWindow (1500, 760);
 txTextCursor (false);
 
+     string PAGE = "menu";
 
-     string adress ="картинки/расы/кенку.bmp";
-
-     int pos1 = adress.find("/");
-     int pos2 = adress.find("/",pos1+1);
-     string contegor = adress.substr(pos1+1,pos2-(pos1+1));
-
-     int count_pic = 22;
-     int count_butn = 7;
+     int count_pic = 0;
+     int count_butn = 10;
      int nCentrPic = 0;
+     int count_menu_butn = 5;
+     int butn_save = count_butn -5;
+     int butn_load = count_butn -4;
+     int butn_ckrin = count_butn -3;
+     int butn_exit = count_butn -2;
+     int butn_help = count_butn -1;
+     int menu_butn_start = count_menu_butn -4;
+     int menu_butn_help = count_menu_butn -3;
+     int menu_butn_load = count_menu_butn -2;
+     int menu_butn_exit =  count_menu_butn -1;
 
-     char str[150];
+
+
+
+     char str[300];
+
+     Button menu_butn[count_menu_butn];
+     menu_butn[0]={670,440,150,35,"автор"};
+     menu_butn[1]={670,180,150,35,"начать"};                     //count_pic
+     menu_butn[2]={670,260,150,35,"помощь"};
+     menu_butn[3]={670,330,150,35,"загрузить"};
+     menu_butn[4]={670,380,150,35,"выход"};
+
 
      Button butn[count_butn];
      butn[0]={55,55,150,35,"расы","расы"};                     //count_pic
      butn[1]={255,55,150,35,"Классы","Классы"};
      butn[2]={455,55,150,35,"одежда","одежда"};
      butn[3]={655,55,150,35,"питомцы","питомцы"};
-     butn[4]={855,55,150,35,"оружее","оружее"};
-     butn[5]={1200,75,210,35,"сахранить","сахранение"};
-     butn[6]={1150,105,210,35,"загрузить","загрузка"};
+     butn[4]={855,55,150,35,"инструменты","инструменты"};
+     butn[5]={1200,75,210,35,"сахранить"};
+     butn[6]={1200,120,210,35,"загрузить"};
+     butn[7]={1260,630,210,35,"скриншот"};
+     butn[8]={1260,550,210,35,"выход"};
+     butn[9]={1260,500,210,35,"помощь"};
      HDC Fon =txLoadImage ("картинки/фон.bmp");
+     HDC Menu =txLoadImage ("картинки/МЕНЮ.bmp");
 
-
-     int butn_save = count_butn -2;
-     int butn_load = count_butn -1;
 
 
      Pictures pic[1000];
-     /*
-     pic[0]={10,100,"картинки/расы/кенку.bmp",txLoadImage ("картинки/расы/кенку.bmp"),564,729,80,100,"расы"};
-     pic[1]={10,200,"картинки/расы/орк.bmp",txLoadImage ("картинки/расы/орк.bmp"),216,281,80,100,"расы"};
-     pic[2]={10,300,"картинки/расы/дварф.bmp",txLoadImage ("картинки/расы/дварф.bmp"),184,274,80,100,"расы"};
-     pic[3]={10,400,"картинки/расы/кот.bmp",txLoadImage ("картинки/расы/кот.bmp"),209,241,80,100,"расы"};
-     pic[4]={10,500,"картинки/расы/гоблин.bmp",txLoadImage ("картинки/расы/гоблин.bmp"),216,497,80,100,"расы"};
-     pic[5]={10,600,"картинки/расы/грунг.bmp",txLoadImage ("картинки/расы/грунг.bmp"),184,274,80,100,"расы"};
-     pic[6]={10,700,"картинки/расы/ааракана.bmp",txLoadImage ("картинки/расы/ааракана.bmp"),216,208,80,100,"расы"};
-     pic[7]={60,100,"картинки/расы/автогном.bmp",txLoadImage ("картинки/расы/автогном.bmp"),216,324,80,100,"расы"};
-     pic[8]={60,200,"картинки/расы/плазмоид.bmp",txLoadImage ("картинки/расы/плазмоид.bmp"),209,241,109,141,"расы"};
-     pic[9]={60,300,"картинки/расы/кованый.bmp",txLoadImage ("картинки/расы/кованый.bmp"),287,512,80,100,"расы"};
 
-     pic[10]={10,100,"картинки/броня/шляпа.bmp",txLoadImage ("картинки/одежда/шляпа.bmp"),225,225,80,100,"одежда"};
-     pic[11]={10,200,"картинки/броня/нагрудник.bmp",txLoadImage ("картинки/одежда/нагрудник.bmp"),225,225,80,100,"одежда"};
-     pic[12]={10,300,"картинки/броня/маска.bmp",txLoadImage ("картинки/одежда/маска.bmp"),194,257,80,100,"одежда"};
-     pic[13]={10,400,"картинки/броня/чума.bmp",txLoadImage ("картинки/одежда/чума.bmp"),225,225,80,100,"одежда"};
-     pic[14]={10,500,"картинки/броня/шлем.bmp",txLoadImage ("картинки/одежда/шлем.bmp"),219,230,80,100,"одежда"};
-     pic[15]={10,600,"картинки/броня/ковбой.bmp",txLoadImage ("картинки/одежда/ковбой.bmp"),225,225,80,100,"одежда"};
 
-     pic[16]={10,100,"картинки/питомцы/акулака.bmp",txLoadImage ("картинки/питомцы/акулака.bmp"),169,110,100,80,"питомцы"};
-     pic[17]={10,200,"картинки/питомцы/дракон.bmp",txLoadImage ("картинки/питомцы/дракон.bmp"),215,117,100,80,"питомцы"};
 
-     pic[18]={10,100,"картинки/оружее/банжо.bmp",txLoadImage ("картинки/оружее/банжо.bmp"),624,460,120,80,"оружее"};
-     pic[19]={10,300,"картинки/оружее/меч.bmp",txLoadImage ("картинки/оружее/меч.bmp"),196,78,200,100,"оружее"};
-     pic[20]={10,500,"картинки/оружее/молот.bmp",txLoadImage ("картинки/оружее/молот.bmp"),207,199,107,99,"оружее"};
-     pic[21]={10,700,"картинки/оружее/посох1.bmp",txLoadImage ("картинки/оружее/посох1.bmp"),216,1348,50,300,"оружее"};
-     */
+    count_pic = ReadFromDir("картинки/расы/", pic, count_pic);
+    count_pic = ReadFromDir("картинки/Классы/", pic, count_pic);
+    count_pic = ReadFromDir("картинки/одежда/", pic, count_pic);
+    count_pic = ReadFromDir("картинки/питомцы/", pic, count_pic);
+    count_pic = ReadFromDir("картинки/инструменты/", pic, count_pic);
 
-    count_pic = ReadFromDir("картинки/расы/",pic,count_pic);
-    count_pic = ReadFromDir("картинки/Классы/",pic,count_pic);
-    count_pic = ReadFromDir("картинки/одежда/",pic,count_pic);
-    count_pic = ReadFromDir("картинки/питомцы/",pic,count_pic);
-    count_pic = ReadFromDir("картинки/оружее/",pic,count_pic);
-
-       for(int i=0;i< count_butn;i++)
+       for(int i=0;i< count_pic;i++)
        {
         pic[i].vizible = false;
 
-       int pos1 = adress.find("/");
-       int pos2 = adress.find("/",pos1+1);
+       int pos1 = pic[i].adress.find("/");
+       int pos2 = pic[i].adress.find("/",pos1+1);
        pic[i].contegor = pic[i].adress.substr(pos1+1,pos2-(pos1+1));
 
        pic[i].w = get_w(pic[i].adress);
@@ -253,8 +376,8 @@ txTextCursor (false);
 
        if(pic[i].contegor ==  "расы" || pic[i].contegor ==  "оружее" )
          {
-          pic[i].w_shr = pic[i].w/6;
-          pic[i].h_shr = pic[i].h/6;
+          pic[i].w_shr = pic[i].w/4;
+          pic[i].h_shr = pic[i].h/4;
          }
          else
          {
@@ -269,21 +392,74 @@ txTextCursor (false);
      int vybor = 1;
      bool mause_down = false ;
 
-     Pictures centr_pic[100];
+     Pictures centr_pic[600];
 
-
-    while(!GetAsyncKeyState (VK_ESCAPE))
+    while  (true)
     {
+
         txSetFillColor(TX_BLACK);
         txClear();
         txBegin();
 
+    if(PAGE == "menu")
+
+     {
+
+
+       Win32::TransparentBlt(txDC(),0 ,0  , 1540, 800 ,Menu, 0, 0, 1540 ,800 ,RGB(255, 0, 0));
+        for(int i=0;i<count_menu_butn;i++)
+        {
+            menu_butn[i].draw();
+
+        }
+      if(menu_butn[menu_butn_help].click())
+        {
+         PAGE ="help";
+
+        }
+     if(menu_butn[menu_butn_start].click())
+        {
+           PAGE ="work";
+
+        }
+     if(menu_butn[menu_butn_exit].click())
+        {
+           PAGE ="exit";
+
+        }
+     if(menu_butn[menu_butn_help].click())
+        {
+
+
+        }
+
+
+
+
+
+     }
+
+
+
+
+
+
+
+
+
+
+
+
+    if(PAGE == "work" )
+    {
+
         Win32::TransparentBlt(txDC(),0 ,0  , 1540, 800 ,Fon, 0, 0, 1540 ,800 ,RGB(255, 0, 0));
+
         //Win32::TransparentBlt(txDC(),1200 ,45 , 200, 77 ,Bnt, 0, 0, 200 ,77 ,RGB(255, 0, 0));
         drawWorkspase(440,220 , 800, 500);
 
 
-        for(int i=0;i<7;i++)
+        for(int i=0;i<8;i++)
         {
             butn[i].draw();
 
@@ -301,6 +477,12 @@ txTextCursor (false);
             centr_pic[i].draw();
         }
 
+        if(butn[butn_ckrin].click())
+        {
+            ScreenCapture(440,220 , 800, 500, "скрин.bmp", txWindow());
+                        txMessageBox("Это тебе :3...оно в скрин.bmp");
+
+        }
 
         for(int nbutn=0;nbutn<4;nbutn++)
         {
@@ -488,34 +670,19 @@ txTextCursor (false);
                 }
               filein.close();
              }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+             if(butn[butn_help].click())
+              {
+               PAGE = "help";
+              }
+              if(butn[butn_exit].click())
+              {
+               PAGE = "exit";
+              }
+    }
         txEnd();
         txSleep(10);
-    }
 
+    }
 txDisableAutoPause();
 return 0;
 }
