@@ -181,12 +181,16 @@ int ReadFromDir(string adressDir,Pictures pic[],int countFile)
 
                 countFile++;
                 Y+=100 ;
+
+                if(Y>=650)
+                {
+                    X = 150;
+                    Y = 100;
+                }
             }
-        if(Y>=650)
-         {
-          X+=100 ;
-         }
+
         }
+
         closedir(dir);
     }
 
@@ -310,8 +314,10 @@ txTextCursor (false);
 
      string PAGE = "menu";
 
+
+
      int count_pic = 0;
-     int count_butn = 10;
+     int count_butn = 9;
      int nCentrPic = 0;
      int count_menu_butn = 5;
      int butn_save = count_butn -5;
@@ -342,16 +348,15 @@ txTextCursor (false);
      butn[1]={255,55,150,35,"Классы","Классы"};
      butn[2]={455,55,150,35,"одежда","одежда"};
      butn[3]={655,55,150,35,"питомцы","питомцы"};
-     butn[4]={855,55,150,35,"инструменты","инструменты"};
-     butn[5]={1200,75,210,35,"сахранить"};
-     butn[6]={1200,120,210,35,"загрузить"};
-     butn[7]={1260,630,210,35,"скриншот"};
-     butn[8]={1260,550,210,35,"выход"};
-     butn[9]={1260,500,210,35,"помощь"};
+     butn[4]={1200,75,210,35,"сахранить"};
+     butn[5]={1200,120,210,35,"загрузить"};
+     butn[6]={1260,630,210,35,"скриншот"};
+     butn[7]={1260,550,210,35,"выход"};
+     butn[8]={1260,500,210,35,"помощь"};
      HDC Fon =txLoadImage ("картинки/фон.bmp");
      HDC Menu =txLoadImage ("картинки/МЕНЮ.bmp");
-
-
+     HDC Exit =txLoadImage ("картинки/выход.bmp");
+     HDC Help =txLoadImage ("картинки/ХЕЛП.bmp");
 
      Pictures pic[1000];
 
@@ -439,9 +444,12 @@ txTextCursor (false);
 
      }
 
+    if(PAGE == "help")
+     {
+     Win32::TransparentBlt(txDC(),0 ,0  , 1540, 800 ,Help, 0, 0, 1540 ,800 ,RGB(255, 242, 0));
+      if()
 
-
-
+     }
 
 
 
@@ -480,7 +488,7 @@ txTextCursor (false);
         if(butn[butn_ckrin].click())
         {
             ScreenCapture(440,220 , 800, 500, "скрин.bmp", txWindow());
-                        txMessageBox("Это тебе :3...оно в скрин.bmp");
+                        txMessageBox("Это тебе ;3  оно в скрин.bmp");
 
         }
 
