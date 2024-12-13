@@ -6239,3 +6239,303 @@ Run file:	D:\усы шрека\яковлев »ван\DnDRedaktor-main\DnDRedaktor-main\DnDRedakto
 Directory:	D:\усы шрека\яковлев »ван\DnDRedaktor-main\DnDRedaktor-main\DnDRedaktor
 
 --------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+ѕрограмма: D:\усы шрека\яковлев »ван\DnDRedaktor-main\DnDRedaktor-main\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+¬Ќ≈«јѕЌќ: #1 (0x80010012) при выполнении кода по адресу 0x76CE0F22 в функции RaiseException() в модуле C:\Windows\System32\KERNELBASE.dll. —пасибо _txVectoredExceptionHandler(), что сообщил. Ћюблю его <3
+
+ќй, всЄ (EXCEPTION_NONCONTINUABLE).
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x0050A2FC (32-bit), Flags: CMdRe0, Thread: 0x1BCC. 
+
+--------------------------------------------------
+—тек вызовов:
+
+# 0 0x76CE0F22 in C:\Windows\System32\KERNELBASE.dll: RaiseException()
+# 1 0x75BC3B1E in C:\Windows\System32\RPCRT4.dll: RpcRaiseException()
+# 2 0x767E767B in C:\Windows\System32\combase.dll: WindowsCompareStringOrdinal()
+# 3 0x75BB6943 in C:\Windows\System32\RPCRT4.dll: NdrClientCall2()
+# 4 0x7681FB50 in C:\Windows\System32\combase.dll: ObjectStublessClient32()
+# 5 0x76817AEF in C:\Windows\System32\combase.dll: InternalCoUnregisterDisconnectCallback()
+# 6 0x75FD7C95 in C:\Windows\System32\SHELL32.dll: Ordinal900()
+# 7 0x76045F84 in C:\Windows\System32\SHELL32.dll: ILFindLastID()
+# 8 0x74D8DE28 in C:\Windows\SYSTEM32\windows.storage.dll: CCachedShellItem_CreateInstance()
+# 9 0x74D8DA4C in C:\Windows\SYSTEM32\windows.storage.dll: CCachedShellItem_CreateInstance()
+#10 0x74D8D80E in C:\Windows\SYSTEM32\windows.storage.dll: CCachedShellItem_CreateInstance()
+#11 0x75D0C349 in C:\Windows\System32\shcore.dll: Ordinal245()
+#12 0x77D99AB0 in C:\Windows\SYSTEM32\ntdll.dll: RtlUnwind()
+#13 0x77D6607A in C:\Windows\SYSTEM32\ntdll.dll: TpCallbackIndependent()
+#14 0x76E2FCC9 in C:\Windows\System32\KERNEL32.dll: BaseThreadInitThunk()
+#15 0x77D9809E in C:\Windows\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+#16 0x77D9806E in C:\Windows\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Dec  9 2024 17:36:46, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Dec 09 2024 17:37:05
+
+Run file:	D:\усы шрека\яковлев »ван\DnDRedaktor-main\DnDRedaktor-main\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	D:\усы шрека\яковлев »ван\DnDRedaktor-main\DnDRedaktor-main\DnDRedaktor
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+ѕрограмма: D:\усы шрека\яковлев »ван\DnDRedaktor-main\DnDRedaktor-main\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+¬Ќ≈«јѕЌќ: #1 (0x80010012) при выполнении кода по адресу 0x76CE0F22 в функции RaiseException() в модуле C:\Windows\System32\KERNELBASE.dll. —пасибо _txVectoredExceptionHandler(), что сообщил. Ћюблю его <3
+
+ќй, всЄ (EXCEPTION_NONCONTINUABLE).
+
+— помощью функции _set_se_translator() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x0050A2FC (32-bit), Flags: CMdRe0, Thread: 0x1BCC. 
+
+--------------------------------------------------
+—тек вызовов:
+
+# 0 0x76CE0F22 in C:\Windows\System32\KERNELBASE.dll: RaiseException()
+# 1 0x75BC3B1E in C:\Windows\System32\RPCRT4.dll: RpcRaiseException()
+# 2 0x767E767B in C:\Windows\System32\combase.dll: WindowsCompareStringOrdinal()
+# 3 0x75BB6943 in C:\Windows\System32\RPCRT4.dll: NdrClientCall2()
+# 4 0x7681FB50 in C:\Windows\System32\combase.dll: ObjectStublessClient32()
+# 5 0x76817AEF in C:\Windows\System32\combase.dll: InternalCoUnregisterDisconnectCallback()
+# 6 0x75FD7C95 in C:\Windows\System32\SHELL32.dll: Ordinal900()
+# 7 0x76045F84 in C:\Windows\System32\SHELL32.dll: ILFindLastID()
+# 8 0x74D8DE28 in C:\Windows\SYSTEM32\windows.storage.dll: CCachedShellItem_CreateInstance()
+# 9 0x74D8DA4C in C:\Windows\SYSTEM32\windows.storage.dll: CCachedShellItem_CreateInstance()
+#10 0x74D8D80E in C:\Windows\SYSTEM32\windows.storage.dll: CCachedShellItem_CreateInstance()
+#11 0x75D0C349 in C:\Windows\System32\shcore.dll: Ordinal245()
+#12 0x77D99AB0 in C:\Windows\SYSTEM32\ntdll.dll: RtlUnwind()
+#13 0x77D6607A in C:\Windows\SYSTEM32\ntdll.dll: TpCallbackIndependent()
+#14 0x76E2FCC9 in C:\Windows\System32\KERNEL32.dll: BaseThreadInitThunk()
+#15 0x77D9809E in C:\Windows\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+#16 0x77D9806E in C:\Windows\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Dec  9 2024 17:36:46, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Dec 09 2024 17:37:05
+
+Run file:	D:\усы шрека\яковлев »ван\DnDRedaktor-main\DnDRedaktor-main\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	D:\усы шрека\яковлев »ван\DnDRedaktor-main\DnDRedaktor-main\DnDRedaktor
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+ѕрограмма: D:\усы шрека\яковлев »ван\DnDRedaktor-main\DnDRedaktor-main\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+¬Ќ≈«јѕЌќ: #1 (0x80010108) при выполнении кода по адресу 0x76CE0F22 в функции RaiseException() в модуле C:\Windows\System32\KERNELBASE.dll. —пасибо _txVectoredExceptionHandler(), что сообщил. Ћюблю его <3
+
+ќй, всЄ (EXCEPTION_NONCONTINUABLE).
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x0050A2FC (32-bit), Flags: CMdRe0, Thread: 0x2520. 
+
+--------------------------------------------------
+—тек вызовов:
+
+# 0 0x76CE0F22 in C:\Windows\System32\KERNELBASE.dll: RaiseException()
+# 1 0x75BC3B1E in C:\Windows\System32\RPCRT4.dll: RpcRaiseException()
+# 2 0x767E767B in C:\Windows\System32\combase.dll: WindowsCompareStringOrdinal()
+# 3 0x75BB6943 in C:\Windows\System32\RPCRT4.dll: NdrClientCall2()
+# 4 0x7681FB50 in C:\Windows\System32\combase.dll: ObjectStublessClient32()
+# 5 0x76817AEF in C:\Windows\System32\combase.dll: InternalCoUnregisterDisconnectCallback()
+# 6 0x75FD7C95 in C:\Windows\System32\SHELL32.dll: Ordinal900()
+# 7 0x76045F84 in C:\Windows\System32\SHELL32.dll: ILFindLastID()
+# 8 0x74D8DE28 in C:\Windows\SYSTEM32\windows.storage.dll: CCachedShellItem_CreateInstance()
+# 9 0x74D8DA4C in C:\Windows\SYSTEM32\windows.storage.dll: CCachedShellItem_CreateInstance()
+#10 0x74D8D80E in C:\Windows\SYSTEM32\windows.storage.dll: CCachedShellItem_CreateInstance()
+#11 0x75D0C349 in C:\Windows\System32\shcore.dll: Ordinal245()
+#12 0x77D99AB0 in C:\Windows\SYSTEM32\ntdll.dll: RtlUnwind()
+#13 0x77D6607A in C:\Windows\SYSTEM32\ntdll.dll: TpCallbackIndependent()
+#14 0x76E2FCC9 in C:\Windows\System32\KERNEL32.dll: BaseThreadInitThunk()
+#15 0x77D9809E in C:\Windows\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+#16 0x77D9806E in C:\Windows\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Dec 13 2024 18:12:30, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Dec 13 2024 18:12:50
+
+Run file:	D:\усы шрека\яковлев »ван\DnDRedaktor-main\DnDRedaktor-main\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	D:\усы шрека\яковлев »ван\DnDRedaktor-main\DnDRedaktor-main\DnDRedaktor
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+ѕрограмма: D:\усы шрека\яковлев »ван\DnDRedaktor-main\DnDRedaktor-main\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+¬Ќ≈«јѕЌќ: #1 (0x80010108) при выполнении кода по адресу 0x76CE0F22 в функции RaiseException() в модуле C:\Windows\System32\KERNELBASE.dll. —пасибо _txVectoredExceptionHandler(), что сообщил. Ћюблю его <3
+
+ќй, всЄ (EXCEPTION_NONCONTINUABLE).
+
+— помощью функции _set_se_translator() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x0050A2FC (32-bit), Flags: CMdRe0, Thread: 0x2520. 
+
+--------------------------------------------------
+—тек вызовов:
+
+# 0 0x76CE0F22 in C:\Windows\System32\KERNELBASE.dll: RaiseException()
+# 1 0x75BC3B1E in C:\Windows\System32\RPCRT4.dll: RpcRaiseException()
+# 2 0x767E767B in C:\Windows\System32\combase.dll: WindowsCompareStringOrdinal()
+# 3 0x75BB6943 in C:\Windows\System32\RPCRT4.dll: NdrClientCall2()
+# 4 0x7681FB50 in C:\Windows\System32\combase.dll: ObjectStublessClient32()
+# 5 0x76817AEF in C:\Windows\System32\combase.dll: InternalCoUnregisterDisconnectCallback()
+# 6 0x75FD7C95 in C:\Windows\System32\SHELL32.dll: Ordinal900()
+# 7 0x76045F84 in C:\Windows\System32\SHELL32.dll: ILFindLastID()
+# 8 0x74D8DE28 in C:\Windows\SYSTEM32\windows.storage.dll: CCachedShellItem_CreateInstance()
+# 9 0x74D8DA4C in C:\Windows\SYSTEM32\windows.storage.dll: CCachedShellItem_CreateInstance()
+#10 0x74D8D80E in C:\Windows\SYSTEM32\windows.storage.dll: CCachedShellItem_CreateInstance()
+#11 0x75D0C349 in C:\Windows\System32\shcore.dll: Ordinal245()
+#12 0x77D99AB0 in C:\Windows\SYSTEM32\ntdll.dll: RtlUnwind()
+#13 0x77D6607A in C:\Windows\SYSTEM32\ntdll.dll: TpCallbackIndependent()
+#14 0x76E2FCC9 in C:\Windows\System32\KERNEL32.dll: BaseThreadInitThunk()
+#15 0x77D9809E in C:\Windows\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+#16 0x77D9806E in C:\Windows\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Dec 13 2024 18:12:30, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Dec 13 2024 18:12:49
+
+Run file:	D:\усы шрека\яковлев »ван\DnDRedaktor-main\DnDRedaktor-main\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	D:\усы шрека\яковлев »ван\DnDRedaktor-main\DnDRedaktor-main\DnDRedaktor
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+ѕрограмма: D:\усы шрека\яковлев »ван\DnDRedaktor-main\DnDRedaktor-main\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+¬Ќ≈«јѕЌќ: #1 (0x80010108) при выполнении кода по адресу 0x76CE0F22 в функции RaiseException() в модуле C:\Windows\System32\KERNELBASE.dll. —пасибо _txVectoredExceptionHandler(), что сообщил. Ћюблю его <3
+
+ќй, всЄ (EXCEPTION_NONCONTINUABLE).
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x0050A2FC (32-bit), Flags: CMdRe0, Thread: 0x2BB4. 
+
+--------------------------------------------------
+—тек вызовов:
+
+# 0 0x76CE0F22 in C:\Windows\System32\KERNELBASE.dll: RaiseException()
+# 1 0x75BC3B1E in C:\Windows\System32\RPCRT4.dll: RpcRaiseException()
+# 2 0x767E767B in C:\Windows\System32\combase.dll: WindowsCompareStringOrdinal()
+# 3 0x75BB6943 in C:\Windows\System32\RPCRT4.dll: NdrClientCall2()
+# 4 0x7681FB50 in C:\Windows\System32\combase.dll: ObjectStublessClient32()
+# 5 0x76817AEF in C:\Windows\System32\combase.dll: InternalCoUnregisterDisconnectCallback()
+# 6 0x75FD7C95 in C:\Windows\System32\SHELL32.dll: Ordinal900()
+# 7 0x76045F84 in C:\Windows\System32\SHELL32.dll: ILFindLastID()
+# 8 0x74D8DE28 in C:\Windows\SYSTEM32\windows.storage.dll: CCachedShellItem_CreateInstance()
+# 9 0x74D8DA4C in C:\Windows\SYSTEM32\windows.storage.dll: CCachedShellItem_CreateInstance()
+#10 0x74D8D80E in C:\Windows\SYSTEM32\windows.storage.dll: CCachedShellItem_CreateInstance()
+#11 0x75D0C349 in C:\Windows\System32\shcore.dll: Ordinal245()
+#12 0x77D99AB0 in C:\Windows\SYSTEM32\ntdll.dll: RtlUnwind()
+#13 0x77D6607A in C:\Windows\SYSTEM32\ntdll.dll: TpCallbackIndependent()
+#14 0x76E2FCC9 in C:\Windows\System32\KERNEL32.dll: BaseThreadInitThunk()
+#15 0x77D9809E in C:\Windows\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+#16 0x77D9806E in C:\Windows\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Dec 13 2024 18:15:30, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Dec 13 2024 18:15:50
+
+Run file:	D:\усы шрека\яковлев »ван\DnDRedaktor-main\DnDRedaktor-main\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	D:\усы шрека\яковлев »ван\DnDRedaktor-main\DnDRedaktor-main\DnDRedaktor
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+ѕрограмма: D:\усы шрека\яковлев »ван\DnDRedaktor-main\DnDRedaktor-main\DnDRedaktor\bin\Debug\DnDRedaktor.exe,
+
+¬Ќ≈«јѕЌќ: #1 (0x80010108) при выполнении кода по адресу 0x76CE0F22 в функции RaiseException() в модуле C:\Windows\System32\KERNELBASE.dll. —пасибо _txVectoredExceptionHandler(), что сообщил. Ћюблю его <3
+
+ќй, всЄ (EXCEPTION_NONCONTINUABLE).
+
+— помощью функции _set_se_translator() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x0050A2FC (32-bit), Flags: CMdRe0, Thread: 0x2BB4. 
+
+--------------------------------------------------
+—тек вызовов:
+
+# 0 0x76CE0F22 in C:\Windows\System32\KERNELBASE.dll: RaiseException()
+# 1 0x75BC3B1E in C:\Windows\System32\RPCRT4.dll: RpcRaiseException()
+# 2 0x767E767B in C:\Windows\System32\combase.dll: WindowsCompareStringOrdinal()
+# 3 0x75BB6943 in C:\Windows\System32\RPCRT4.dll: NdrClientCall2()
+# 4 0x7681FB50 in C:\Windows\System32\combase.dll: ObjectStublessClient32()
+# 5 0x76817AEF in C:\Windows\System32\combase.dll: InternalCoUnregisterDisconnectCallback()
+# 6 0x75FD7C95 in C:\Windows\System32\SHELL32.dll: Ordinal900()
+# 7 0x76045F84 in C:\Windows\System32\SHELL32.dll: ILFindLastID()
+# 8 0x74D8DE28 in C:\Windows\SYSTEM32\windows.storage.dll: CCachedShellItem_CreateInstance()
+# 9 0x74D8DA4C in C:\Windows\SYSTEM32\windows.storage.dll: CCachedShellItem_CreateInstance()
+#10 0x74D8D80E in C:\Windows\SYSTEM32\windows.storage.dll: CCachedShellItem_CreateInstance()
+#11 0x75D0C349 in C:\Windows\System32\shcore.dll: Ordinal245()
+#12 0x77D99AB0 in C:\Windows\SYSTEM32\ntdll.dll: RtlUnwind()
+#13 0x77D6607A in C:\Windows\SYSTEM32\ntdll.dll: TpCallbackIndependent()
+#14 0x76E2FCC9 in C:\Windows\System32\KERNEL32.dll: BaseThreadInitThunk()
+#15 0x77D9809E in C:\Windows\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+#16 0x77D9806E in C:\Windows\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Dec 13 2024 18:15:30, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Dec 13 2024 18:15:50
+
+Run file:	D:\усы шрека\яковлев »ван\DnDRedaktor-main\DnDRedaktor-main\DnDRedaktor\bin\Debug\DnDRedaktor.exe
+Directory:	D:\усы шрека\яковлев »ван\DnDRedaktor-main\DnDRedaktor-main\DnDRedaktor
+
+--------------------------------------------------
