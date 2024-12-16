@@ -356,7 +356,7 @@ txTextCursor (false);
      HDC Menu =txLoadImage ("картинки/МЕНЮ.bmp");
      HDC Exit =txLoadImage ("картинки/выход.bmp");
      HDC Help =txLoadImage ("картинки/ХЕЛП.bmp");
-
+     HDC Avtor =txLoadImage ("картинки/автор.bmp");
      Pictures pic[1000];
 
 
@@ -432,10 +432,24 @@ txTextCursor (false);
 
         }
 
+   if(menu_butn[0].click())
+        {
+           PAGE ="avtor";
+
+        }
 
 
 
 
+     }
+
+    if(PAGE == "avtor")
+     {
+     Win32::TransparentBlt(txDC(),0 ,0  , 1540, 800 ,Avtor, 0, 0, 1540 ,800 ,RGB(255, 242, 0));
+      if(GetAsyncKeyState (VK_ESCAPE))
+          {
+                PAGE = "menu";
+          }
 
      }
 
@@ -448,8 +462,6 @@ txTextCursor (false);
           }
 
      }
-
-
 
 
 
